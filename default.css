@@ -1,5 +1,5 @@
 * {
-  font-family: verdana,sans-serif;
+  font-family: "Microsoft YaHei", "SimHei", "SimSun";
   margin: 0;
   padding: 0;
 }
@@ -7,7 +7,7 @@
 
 
 body {
-  font: 80% verdana, sans-serif;
+  font: 80% "Microsoft YaHei", "SimHei", "SimSun";
   background: #fff;
   padding: 1em 2em;
 }

@@ -5,7 +5,7 @@
 	$path = "import/";
 	$image = new image();
 	$folders = scandir($path);
-	print "Processing folder for files... Please wait.<br><br>";
+	print "处理文件目录中……请等待<br><br>";
 	//Scan directory for folders. Exclude . and ..
 	foreach($folders as $folder)
 	{
@@ -30,7 +30,7 @@
 				$dl_url = $site_url.$path.rawurlencode($current_folder)."/".rawurlencode($file);
 				$iinfo = $image->getremoteimage($dl_url);
 				if($iinfo === false)
-					$error = $image->geterror()."<br />Could not add the image.";
+					$error = $image->geterror()."<br />不能添加这个图片。";
 				else
 					$uploaded_image = true;	
 				//Ok, download of image was successful! (yay?)
@@ -46,9 +46,9 @@
 					$ttags = explode(" ",$tags);
 					$tag_count = count($ttags);		
 					if($tag_count == 0)
-						$ttags[] = "tagme";
-					if($tag_count < 5 && strpos($ttags,"tagme") === false)
-						$ttags[] = "tagme";
+						$ttags[] = "【待标注】";
+					if($tag_count < 5 && strpos($ttags,"【待标注】") === false)
+						$ttags[] = "【待标注】";
 					foreach($ttags as $current)
 					{
 						if(strpos($current,'parent:') !== false)
@@ -101,10 +101,10 @@
 					if(!is_dir("./thumbnails/".$iinfo[0]."/"))
 						$image->makethumbnailfolder($iinfo[0]);
 					if(!$image->thumbnail($iinfo[0]."/".$iinfo[1]))
-						print "Thumbnail generation failed! A serious error occured and the image could not be resized.<br /><br />";
+						print "缩略图生成失败！ 图片缩放过程中发生了一个严重错误<br /><br />";
 					if(!$db->query($query))
 					{
-						print "failed to upload image.";
+						print "上传图片失败";
 						unlink("./images/".$iinfo[0]."/".$iinfo[1]);
 						$image->folder_index_decrement($iinfo[0]);
 						$ttags = explode(" ",$tags);
@@ -140,10 +140,10 @@
 
 						$query = "UPDATE $post_count_table SET last_update='20060101' WHERE access_key='posts'";
 						$db->query($query);
-						print "Image added.";
+						print "图片上传成功";
 					}
 				}
-				print "Valid Extension<br>".$tags2[$i]." | ";
+				print "扩展有效<br>".$tags2[$i]." | ";
 				print $file."<br><br>";
 			}
 		}

@@ -1,7 +1,7 @@
 <SEARCH
-	name="Gelbooru"
-	description="Gelbooru Search"
-	action="http://gelbooru.com/"	   
+	name="MoyBooru"
+	description="Moybooru Search"
+	action="http://booru.neko/"	   
 	showif=""
 	queryCharset="UTF-8"
 	method="GET"

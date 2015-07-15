@@ -1,27 +1,5 @@
 <?php
-	if(!isset($_POST['settings']))
-	{
-		print '<form method="post" action="index.php">
-		<table><tr><td>
-		Username (for admin):<br />
-		<input type="text" name="user" value=""/>
-		</td></tr>
-		<tr><td>
-		Password:<br />
-		<input type="text" name="pass" value=""/>
-		</td></tr>
-		<tr><td>
-		Email:<br />
-		<input type="text" name="email" value=""/>
-		</td></tr>
-		<tr><td>
-		<input type="hidden" name="settings" value="1"/>
-		</td></tr>
-		<tr><td>
-		<input type="submit" name="submit" value="Install"/>
-		</td></tr></table></form>'; 
-		exit;
-	}
+	if(isset($_POST['settings']))
 		require "create_db.php";
 		$user = $db->real_escape_string($_POST['user']);
 		$pass = $db->real_escape_string($_POST['pass']);
@@ -35,6 +13,28 @@
 			$db->query($query) or die($db->error);
 		}
 		else
-			print "You've already installed the Gelbooru software in this database. A new user will not be added. You may wish to run the upgrade instead?<br /><br />";
-		print "<br />Install went well. Log into your account using the username and password during this install.";
+			print "你已经在这个数据库中安装了MoyBooru，安装程序将不会继续进行。<br /><br />";
+		print "<br />安装顺利结束。现在你可以用你设定的账号密码登入网站了。<br />建议删除网站目录下的install文件夹。";
+		exit();
 ?>
+<h1>MoyBooru安装程序</h1>
+<form method="post" action="index.php">
+<table><tr><td>
+账号（将被设置成为管理员）：<br />
+<input type="text" name="user" value=""/>
+</td></tr>
+<tr><td>
+密码：<br />
+<input type="text" name="pass" value=""/>
+</td></tr>
+<tr>
+  <td>
+E-mail：<br />
+<input type="text" name="email" value=""/>
+</td></tr>
+<tr><td>
+<input type="hidden" name="settings" value="1"/>
+</td></tr>
+<tr><td>
+<input type="submit" name="submit" value="安装"/>
+</td></tr></table></form>
