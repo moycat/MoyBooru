@@ -25,7 +25,7 @@
 
 2. 将以下目录设置为可写：
 
-images, tmp, and thumbnails
+images, tmp, thumbnails
 
 3. 确保PHP配置正确，以Windows环境为例：
 
@@ -41,9 +41,9 @@ images, tmp, and thumbnails
 
 4. 浏览器访问/install/目录，输入管理员信息安装站点。安装后删除install目录。
 
-5. booru.xml应当被重命名为站点名称，并请编辑其中内容以适合你的站点。同时需要编辑Header.php中的内容。
+5. booru.xml应当被重命名为站点名称，并请编辑其中内容以适合你的站点。同时需要编辑Header.php中的内容（includes目录下）。
 
-6. 后台管理地址/admin/，config.php中有更多设置。
+6. 后台管理地址/admin/。根目录的config.php中有更多设置。
 
 7. 如果无法正常检索3个字符以下的标签，请在MySQL的配置文件中加入以下内容以修改全文索引限制：
 
@@ -56,7 +56,7 @@ images, tmp, and thumbnails
 
 试过Danbooru，无论x86还是树莓派，无论VPS还是实体机，都跪了，装不上啊。
 
-试过Gelbooru，0.1.11比较简陋。它的0.2.x（当前版本）很不错，但是是闭源的。
+试过Gelbooru，但0.1.11比较简陋。它的0.2.x（当前版本）很不错，但是是闭源的。
 
 看过其他的，感觉好丑，不喜欢。
 
