@@ -1,5 +1,6 @@
 <?php
 	if(isset($_POST['settings']))
+	{
 		require "create_db.php";
 		$user = $db->real_escape_string($_POST['user']);
 		$pass = $db->real_escape_string($_POST['pass']);
@@ -14,8 +15,9 @@
 		}
 		else
 			print "你已经在这个数据库中安装了MoyBooru，安装程序将不会继续进行。<br /><br />";
-		print "<br />安装顺利结束。现在你可以用你设定的账号密码登入网站了。<br />建议删除网站目录下的install文件夹。";
+		print "<br />安装顺利结束。现在你可以用你设定的账号密码登入网站了。";
 		exit();
+	}
 ?>
 <h1>MoyBooru安装程序</h1>
 <form method="post" action="index.php">
