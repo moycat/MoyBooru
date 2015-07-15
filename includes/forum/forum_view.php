@@ -43,14 +43,14 @@
 		<div class="body">'.$misc->short_url($misc->swap_bbs_tags($misc->linebreaks($row['post']))).'</div>
 		<div class="footer">';
     	if($uname == $row['author'] || $user->gotpermission('edit_forum_posts'))
-			echo '<a href="#" onclick="showHide(\'c'.$row['id'].'\'); return false;">edit</a> |';
+			echo '<a href="#" onclick="showHide(\'c'.$row['id'].'\'); return false;">编辑</a> |';
 		else
-			echo '<a href="">edit</a> |';
-		echo ' <a href="#" onclick="javascript:document.getElementById(\'reply_box\').value=document.getElementById(\'reply_box\').value+\'[quote]'.$row['author'].' said:\r\n'.str_replace("'","\'",str_replace("\r\n",'\r\n',str_replace('&#039;',"'",$row['post']))).'[/quote]\'; return false;">quote</a> '; 
+			echo '<a href="">编辑</a> |';
+		echo ' <a href="#" onclick="javascript:document.getElementById(\'reply_box\').value=document.getElementById(\'reply_box\').value+\'[quote]'.$row['author'].' 说：\r\n'.str_replace("'","\'",str_replace("\r\n",'\r\n',str_replace('&#039;',"'",$row['post']))).'[/quote]\'; return false;">引用</a> '; 
 		if($user->gotpermission('delete_forum_posts') && $row['id'] != $row['creation_post'])
-			print ' | <a href="index.php?page=forum&amp;s=remove&amp;pid='.$id.'&amp;cid='.$row['id'].'">remove</a><br />';
+			print ' | <a href="index.php?page=forum&amp;s=remove&amp;pid='.$id.'&amp;cid='.$row['id'].'">删除</a><br />';
 		if($uname == $row['author'] || $user->gotpermission('edit_forum_posts'))
-			print '<form method="post" action="index.php?page=forum&amp;s=edit&amp;pid='.$id.'&amp;cid='.$row['id'].'&amp;ppid='.$page.'" style="display:none" id="c'.$row['id'].'"><table><tr><td><input type="text" name="title" value="'.$row['title'].'"/></td></tr><tr><td><textarea name="post" rows="4" cols="6" style="width: 450px; height: 150px;">'.$row['post'].'</textarea></td></tr><tr><td><input type="submit" name="submit" value="Edit"/></td></tr></table></form>';
+			print '<form method="post" action="index.php?page=forum&amp;s=edit&amp;pid='.$id.'&amp;cid='.$row['id'].'&amp;ppid='.$page.'" style="display:none" id="c'.$row['id'].'"><table><tr><td><input type="text" name="title" value="'.$row['title'].'"/></td></tr><tr><td><textarea name="post" rows="4" cols="6" style="width: 450px; height: 150px;">'.$row['post'].'</textarea></td></tr><tr><td><input type="submit" name="submit" value="编辑"/></td></tr></table></form>';
 		echo '</div></div></div>';
 	}
 	echo '<div class="paginator"><div id="paginator">';
@@ -60,33 +60,33 @@
 	$query = "SELECT locked FROM $forum_topic_table WHERE id='$id' LIMIT 1";
 	$result = $db->query($query) or die(mysql_error());
 	$row = $result->fetch_assoc();
-	print ($row['locked'] == false) ? '<a href="#" onclick="showHide(\'reply\'); return false;">Reply</a> | ' : '';
-	print '<a href="index.php?page=forum&amp;s=add">New Topic</a> | <a href="'.$site_url.'/help/">Help</a> | <b><a href="'.$site_url.'/index.php?page=forum&amp;s=list">Forum Index</a></b>';
+	print ($row['locked'] == false) ? '<a href="#" onclick="showHide(\'reply\'); return false;">回复</a> | ' : '';
+	print '<a href="index.php?page=forum&amp;s=add">发表新主题</a> | <a href="'.$site_url.'/help/">帮助</a> | <b><a href="'.$site_url.'/index.php?page=forum&amp;s=list">论坛主页</a></b>';
 	if($row['locked'] == false) 
 	{
 		if($user->gotpermission('lock_forum_topics'))
-			print ' | <a href="index.php?page=forum&amp;s=edit&amp;lock=true&amp;id='.$id.'&amp;pid='.$page.'">Lock topic</a>';
+			print ' | <a href="index.php?page=forum&amp;s=edit&amp;lock=true&amp;id='.$id.'&amp;pid='.$page.'">锁定主题</a>';
 	}
 	else
 	{	
 		if($user->gotpermission('lock_forum_topics'))
-			print ' | <a href="index.php?page=forum&amp;s=edit&amp;lock=false&amp;id='.$id.'&amp;pid='.$page.'">Unlock topic</a>';
+			print ' | <a href="index.php?page=forum&amp;s=edit&amp;lock=false&amp;id='.$id.'&amp;pid='.$page.'">解锁主题</a>';
 	}		
 	if($row['locked'] == false)
 	{
 		echo '</center><br /><br /><form method="post" action="index.php?page=forum&amp;s=add&amp;t=post&amp;pid='.$id.'" style="display:none" id="reply">
 		<table><tr><td>
-		Title<br />
+		标题<br />
 		<input type="text" name="title" value=""/>
 		</td></tr><tr><td>
-		Body<br />
+		主体<br />
 		<textarea id="reply_box" name="post" rows="4" cols="6" style="padding-left: 5px; padding-right: 5px; width: 600px; height: 200px;"></textarea>
 		</td></tr><tr><td>
 		<input type="hidden" name="l" value="'.$limit.'"/>
 		</td></tr><tr><td>
 		<input type="hidden" name="conf" id="conf" value="0"/>
 		</td></tr><tr><td>
-		<input type="submit" name="submit" value="Post"/>
+		<input type="submit" name="submit" value="发表"/>
 		</td></tr></table></form>
 		<script type="text/javascript">
 		//<![CDATA[

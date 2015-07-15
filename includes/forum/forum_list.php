@@ -13,7 +13,7 @@
 	<input type="text" name="search" value="" style="width: 40%;" />
 	<input type="submit" name="submit" value="Search" />
 	</form>
-	<table class="highlightable" width="100%"><tr><th width="60%">Title</th><th width="10%">Created by</th><th width="10%">Updated</th><th width="5%">Replies</th>';
+	<table class="highlightable" width="100%"><tr><th width="60%">Title</th><th width="10%">发表者</th><th width="10%">最后更新</th><th width="5%">回复数</th>';
 	if(isset($_GET['pid']) && $_GET['pid'] != "" && is_numeric($_GET['pid']) && $_GET['pid'] >= 0)
 		$page = $db->real_escape_string($_GET['pid']);
 	else
@@ -63,40 +63,40 @@
 		if($row['priority'] =="1")
 			$sticky ="Sticky: ";
 		if($row['locked']=="1")
-			$locked =' <span class="locked-topic">(locked)</span>';
+			$locked =' <span class="locked-topic">（锁定）</span>';
 			
 		print '<tr>';
 		print '<td>'.$sticky.'<a href="?page=forum&amp;s=view&amp;id='.$row['id'].'">'.$row['topic'].'</a>'.$locked.'</td><td>'.$row['author'].'</td><td>'.$date_now.'</td><td>'.$replies.'</td>'; 
 		if($row['priority'] == 0)
 		{
 			if($user->gotpermission('pin_forum_topics'))
-				print '<td><a href="index.php?page=forum&amp;s=edit&amp;pin=1&amp;id='.$row['id'].'&amp;pid='.$page.'">Pin</a> | ';
+				print '<td><a href="index.php?page=forum&amp;s=edit&amp;pin=1&amp;id='.$row['id'].'&amp;pid='.$page.'">置顶</a> | ';
 		}
 		else
 		{
 			if($user->gotpermission('pin_forum_topics')) 
-				print '<td><a href="index.php?page=forum&amp;s=edit&amp;pin=0&amp;id='.$row['id'].'&amp;pid='.$page.'">Unpin</a> | ';
+				print '<td><a href="index.php?page=forum&amp;s=edit&amp;pin=0&amp;id='.$row['id'].'&amp;pid='.$page.'">取消置顶</a> | ';
 		}
 		if($user->gotpermission('delete_forum_topics'))
-			print ' <a href="index.php?page=forum&amp;s=remove&amp;fid='.$row['id'].'&amp;pid='.$page.'">Delete</a></td>'; 
+			print ' <a href="index.php?page=forum&amp;s=remove&amp;fid='.$row['id'].'&amp;pid='.$page.'">删除</a></td>'; 
 		echo '</tr>';
 	}
 	echo '</table><div class="paginator"><div id="paginator">';
 	$misc = new misc();
 	print $misc->pagination($_GET['page'],$_GET['s'],$row['id'],$limit,$page_limit,$numrows,$_GET['pid'],$_GET['tags'],$_GET['query']);
-	echo '</div><br /><div id="footer"><a href="#" onclick="showHide(\'new_topic\'); return false;">New Topic</a> | <a href="'.$site_url.'/help/">Help</a>';
+	echo '</div><br /><div id="footer"><a href="#" onclick="showHide(\'new_topic\'); return false;">发表新主题</a> | <a href="'.$site_url.'/help/">帮助</a>';
 ?>	
 </div></div><form method="post" action="index.php?page=forum&amp;s=add" id="new_topic" style="display:none">
 <table><tr><td>
-Topic:<br/>	
+主题：<br/>	
 <input type="text" name="topic" value=""/>
 </td></tr><tr><td>
-Post:<br />
+内容：<br />
 <textarea name="post" rows="4" cols="6" style="width: 600px; height: 200px;"></textarea>
 </td></tr><tr><td>
 <input type="hidden" name="conf" id='conf' value="0"/>
 </td></tr><tr><td>
-<input type="submit" name="submit" value="Create topic"/>
+<input type="submit" name="submit" value="发表主题"/>
 </td></tr></table></form>
 <script type="text/javascript">
 //<![CDATA[

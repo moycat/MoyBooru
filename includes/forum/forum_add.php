@@ -3,7 +3,7 @@
 	$ip = $db->real_escape_string($_SERVER['REMOTE_ADDR']);	
 	if($user->banned_ip($ip))
 	{
-		print "Action failed: ".$row['reason'];
+		print "执行失败：".$row['reason'];
 		exit;
 	}	
 	if(!$user->check_log())
