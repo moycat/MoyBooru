@@ -61,7 +61,7 @@
 			echo '<li><span style="color: #a0a0a0;">? <a href="index.php?page=post&amp;s=list&amp;tags='.$current.'">'.str_replace('_',' ',$current)."</a> ".$count['index_count']."</span></li>";
 		}
 		echo '<li><br /><br /><br /><br /><br /><br /><br /><br /></li></ul></div></div>
-		<b>Score</b> <a href="#" onclick="Javascript:post_vote(\''.$id.'\', \'up\')">+</a> <a href="#" onclick="Javascript:post_vote(\''.$id.'\', \'down\')">-</a> <a id="psc">'.$post_data['score'].'</a> ';
+		<b>分数</b> <a href="#" onclick="Javascript:post_vote(\''.$id.'\', \'up\')">+</a> <a href="#" onclick="Javascript:post_vote(\''.$id.'\', \'down\')">-</a> <a id="psc">'.$post_data['score'].'</a> ';
 		if($post_data['spam'] == false)
 			echo '<a id="rp'.$id.'"></a><a href="#" id="rpl'.$id.'" onclick="Element.toggle(\'report_form\')">报告这篇帖子</a><br /><form id="report_form" method="post" action="./public/report.php?type=post&amp;rid='.$id.'" style="display: none;">报告原因：<br /><input type="text" name="reason" value=""/><input type="submit" name="submit" value="" style="display: none;"/></form>';
 		else
@@ -87,7 +87,7 @@
 		echo 'Note.updateNoteCount();
 		Note.show();
 		//]]></script>';
-		echo '<a href="#" onclick="if(confirm(\'你确定要删除这篇帖子吗？\')){var f = document.createElement(\'form\'); f.style.display = \'none\'; this.parentNode.appendChild(f); f.method = \'POST\'; f.action = \'./public/remove.php?id='.$id.'&amp;removepost=1\'; f.submit();}; return false;">删除</a> | <a href="#" onclick="Note.create('.$id.'); return false;">添加注释</a> | <a href="#" onclick="addFav(\''.$id.'\'); return false;">保持</a> | <a href="#" onclick="showHide(\'edit_form\'); return false;">编辑</a> | <a href="#" onclick="document.location=\'index.php?page=history&amp;type=page_notes&amp;id='.$id.'\'; return false;">注释历史</a> | <a href="index.php?page=history&amp;type=tag_history&amp;id='.$id.'">标签历史</a>'; ?> <?php $prev_next['0'] != "" ? print ' | <a href="index.php?page=post&amp;s=view&amp;id='.$prev_next['0'].'">上一篇</a>' : print ""; $prev_next['1'] != "" ? print ' | <a href="index.php?page=post&amp;s=view&amp;id='.$prev_next['1'].'">下一篇</a>' : print ""; $row['parent'] == 0 ? print "<br />" : print "<br /><a href=\"index.php?page=post&s=view&id=".$row['parent']."\">父帖子</a> | ";
+		echo '<a href="#" onclick="if(confirm(\'你确定要删除这篇帖子吗？\')){var f = document.createElement(\'form\'); f.style.display = \'none\'; this.parentNode.appendChild(f); f.method = \'POST\'; f.action = \'./public/remove.php?id='.$id.'&amp;removepost=1\'; f.submit();}; return false;">删除</a> | <a href="#" onclick="Note.create('.$id.'); return false;">添加注释</a> | <a href="#" onclick="addFav(\''.$id.'\'); return false;">添加收藏</a> | <a href="#" onclick="showHide(\'edit_form\'); return false;">编辑</a> | <a href="#" onclick="document.location=\'index.php?page=history&amp;type=page_notes&amp;id='.$id.'\'; return false;">注释历史</a> | <a href="index.php?page=history&amp;type=tag_history&amp;id='.$id.'">标签历史</a>'; ?> <?php $prev_next['0'] != "" ? print ' | <a href="index.php?page=post&amp;s=view&amp;id='.$prev_next['0'].'">上一篇</a>' : print ""; $prev_next['1'] != "" ? print ' | <a href="index.php?page=post&amp;s=view&amp;id='.$prev_next['1'].'">下一篇</a>' : print ""; $row['parent'] == 0 ? print "<br />" : print "<br /><a href=\"index.php?page=post&s=view&id=".$row['parent']."\">父帖子</a> | ";
 ?>
 		<form method="post" action="./public/edit_post.php" id="edit_form" name="edit_form" style="display:none">
 		<table><tr><td>

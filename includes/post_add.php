@@ -42,9 +42,9 @@
 		else if(!empty($_FILES['upload']) && $_FILES['upload']['error'] == 0)
 		{
 			$iinfo = $image->process_upload($_FILES['upload']);
-			if($iinfo === false)
-				$error = $image->geterror()."<br />发生了一个错误。这张图片可能已经存在或者曾被删除";
-			else
+		//	if($iinfo === false)
+		//		$error = $image->geterror()."<br />发生了一个错误。这张图片可能已经存在或者曾被删除";
+		//	else
 				$uploaded_image = true;
 		}
 		else
@@ -174,7 +174,7 @@
 				$db->query($query);
 				$query = "UPDATE $user_table SET post_count = post_count+1 WHERE id='$checked_user_id'";
 				$db->query($query);
-				print "Image added.";
+				print "图片已添加";
 			}
 		}
 	}
