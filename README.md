@@ -27,7 +27,7 @@
 
 images, tmp, thumbnails
 
-3. 确保PHP配置正确，以Windows环境为例：
+3. 确保PHP配置正确，以下以Windows环境为例，Linux请确认对应设置或模块正确配置。
 
  - extension=php_mbstring.dll
  
@@ -45,11 +45,11 @@ images, tmp, thumbnails
 
 6. 后台管理地址/admin/。根目录的config.php中有更多设置。
 
-7. 如果无法正常检索3个字符以下的标签，请在MySQL的配置文件中加入以下内容以修改全文索引限制：
+7. 如果无法正常检索3个字符以下的标签，请在MySQL的配置文件（Windows中为my.ini，Linux中为my.cnf）的[mysqld]字段中加入以下内容以修改全文索引限制：
 
-	 - ft_min_word_len=1
+	 - ft_min_word_len = 1
 	 
-	 - ft_stopword_file=
+	 - ft_stopword_file =
 
 # 缘由
 很久以前我就想要一个画板程序。（不要问为什么>//<）
