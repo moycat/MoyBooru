@@ -14,6 +14,8 @@ Share, Rate, and Enjoy.
 
 5. [TODO]Picture sets, pools supported.
 
+6. [TODO]Multi-language support.
+
 {to be continued...}
 
 # WHY
