@@ -47,7 +47,7 @@ Note.updateNoteCount = function() {
 		else
 			label = "notes"
 
-		$('note-count').innerHTML = "This post has <a href=\"#\" onclick=\"document.location='index.php?page=history&type=page_notes&id=" + Note.post_id + "'\">" + Note.all.length + " " + label + "</a>"
+		$('note-count').innerHTML = "这篇帖子有 <a href=\"#\" onclick=\"document.location='index.php?page=history&type=page_notes&id=" + Note.post_id + "'\">" + Note.all.length + " " + label + "</a>"
 	} else {
 		$('note-count').innerHTML = ""
 	}
@@ -61,7 +61,7 @@ Note.create = function() {
 	note += 'id="note-box-' + Note.counter + '">'
 	note += '<div class="note-corner" id="note-corner-' + Note.counter + '"></div>'
 	note += '</div>'
-	note += '<div class="note-body" title="Click to edit" id="note-body-' + Note.counter + '"></div>'
+	note += '<div class="note-body" title="点击编辑" id="note-body-' + Note.counter + '"></div>'
 	new Insertion.Bottom('note-container', note)
 	Note.all.push(new Note(Note.counter, true))
 	Note.counter -= 1
@@ -328,14 +328,14 @@ Note.prototype = {
 		params.push("note%5Bbody%5D=" + encodeURIComponent(this.old.body))
 		params.push("note%5Bpost_id%5D=" + Note.post_id)
 		
-		notice("Saving note...")
+		notice("注释保存中……")
 		new Ajax.Request('./public/note_save.php?id=' + this.id, {
 			asynchronous: true,
 			method: 'get',
 			parameters: params.join("&"),
 			onComplete: function(req) {
 				if (req.status == 200) {
-					notice("Note saved")
+					notice("注释已保存")
 					//var response = eval(req.responseText)
 					var response = req.responseText.split(":");
 					if (response[1] < 0) {
@@ -347,7 +347,7 @@ Note.prototype = {
 						n.is_new = false;
 					}
 				} else {
-					notice("Error: " + req.responseText)
+					notice("错误：" + req.responseText)
 					//alert(req.status);
 				}
 			}
@@ -389,21 +389,21 @@ Note.prototype = {
 		this.bodyHide()
 		if (this.is_new) {
 			this.removeCleanup()
-			notice("Note removed")
+			notice("注释已移除")
 		} else {
-			notice("Removing note...")
+			notice("注释移除中……")
 
 			new Ajax.Request('./public/remove.php?id=' + Note.post_id + "&note_id=" + this.id, {
 				asynchronous: true,
 				method: 'get',
 				onComplete: function(req) {
 					if (req.status == 403) {
-						notice("Access denied")
+						notice("无权限")
 					} else if (req.status == 500) {
-						notice("Error: " + req.responseText)
+						notice("错误：" + req.responseText)
 					} else {
 						Note.find(parseInt(req.responseText)).removeCleanup()
-						notice("Note removed")
+						notice("注释已移除")
 					}
 				}
 			})
@@ -416,7 +416,7 @@ Note.prototype = {
 		this.hideEditBox(e)
 
 		if (this.is_new) {
-			notice("This note has no history")
+			notice("没有这个注释的历史记录")
 		} else {
 			document.location='index.php?page=history&type=note&id=' + this.id + "&pid=" + Note.post_id;
 		}

@@ -18,7 +18,7 @@ function updatePost()
 			}
 			catch(e)
 			{
-				alert("Your browser is to old or does not support Ajax.");
+				alert("你的浏览器太老或不支持Ajax");
 			}
 		}
 	}
@@ -63,7 +63,7 @@ function addFav(id)
 			}
 			catch(e)
 			{
-				alert("Your browser is to old or does not support Ajax.");
+				alert("你的浏览器太老或不支持Ajax");
 			}
 		}
 	}
@@ -73,15 +73,15 @@ function addFav(id)
 		{
 			if(HttpRequest.responseText == "1")
 			{
-				notice("Post already in your favorites");
+				notice("帖子已存在于收藏");
 			}
 			else if(HttpRequest.responseText == "2")
 			{
-				notice("You are not logged in");
+				notice("你尚未登录");
 			}
 			else
 			{
-				notice("Post added to favorites");
+				notice("帖子添加收藏成功");
 			}
 		}
 	}
@@ -113,7 +113,7 @@ function vote(pid, comment_id, up_down)
 			}
 			catch(e)
 			{
-				alert("Your browser is to old or does not support Ajax.");
+				alert("你的浏览器太老或不支持Ajax");
 			}
 		}
 	}
@@ -149,7 +149,7 @@ function post_vote(pid, up_down)
 			}
 			catch(e)
 			{
-				alert("Your browser is to old or does not support Ajax.");
+				alert("你的浏览器太老或不支持Ajax");
 			}
 		}
 	}
@@ -189,7 +189,7 @@ function spam(type, id)
 			}
 			catch(e)
 			{
-				alert("Your browser is to old or does not support Ajax.");
+				alert("你的浏览器太老或不支持Ajax");
 			}
 		}
 	}
@@ -204,9 +204,9 @@ function spam(type, id)
 			{
 				if(HttpRequest.responseText == "pass")
 				{
-					$('rc' + id).innerHTML='<b>Reported</b>';
+					$('rc' + id).innerHTML='<b>已报告</b>';
 					$('rcl' + id).innerHTML='';
-					notice("Comment #" + id + " has been reported as spam");
+					notice("评论 #" + id + " 已被报告为垃圾信息");
 				}
 			}
 		}
@@ -491,7 +491,7 @@ function select_image_domain(creation_date,image_path)
 				}
 				catch(e)
 				{
-					alert("Your browser is to old or does not support Ajax.");
+					alert("你的浏览器太老或不支持Ajax");
 				}
 			}
 		}
@@ -533,7 +533,7 @@ function update_image_src(current_date,creation_date,image_path)
 			}
 			catch(e)
 			{
-				alert("Your browser is to old or does not support Ajax.");
+				alert("你的浏览器太老或不支持Ajax");
 			}
 		}
 	}

@@ -5,29 +5,35 @@
 <div id="content">
 <div class="help">
 
-  <h1>Help: Ratings</h1>
+  <h1>帮助：分级</h1>
 
 <div class="section">
-<p>All posts on <?php echo $site_url3;?> have one of three types of ratings: Safe, Questionable, and Explicit. Questionable is the default rating if you do not choose to specify one. <strong>Please take note</strong>: occasionally explicit images will be marked safe, and vice versa. You should not depend completely on rating filters unless you can tolerate the occasional wrongly rated image. If this happens to you, fix it so that other users don't have that happen to them.</p>
+<p>所有在 <?php echo $site_url3;?> 上的帖子都属于三种分级之一：敏感的、存疑的、安全的。如果在上传时更改，帖子将默认是“存疑的”。</p>
+<p><strong>但是注意，分级并不一定准确，这取决于上传的人是否正确选择。</strong>如果你发现了某篇帖子分级错误，请协助修改。</p>
 
 <div class="section">
-	<h4>Explicit</h4>
-	<p>Any image where the vagina or penis are exposed and easily visible. This includes depictions of sex, masturbation, or any sort of penetration.</p>
+	<h4>敏感的</h4>
+	<p>任何不适宜于在所有场所观看的帖子都属于此类。</p>
 </div>
   
 <div class="section">
-	<h4>Safe</h4>
-	<p>Safe posts are images that you would not feel guilty looking at openly in public. Pictures of nudes, exposed nipples or pubic hair, cameltoe, or any sort of sexually suggestive pose are <b>NOT</b> safe and belong in questionable. Swimsuits and lingerie are borderline cases; some are safe, some are questionable.</p>
+	<h4>安全的</h4>
+	<p>安全的帖子通常可以在任何场合观看，而不会引发问题。</p>
 </div>
   
 <div class="section">
-	<h4>Questionable</h4>
-	<p>Basically anything that isn\'t safe or explicit. This is the great middle area, and since it includes unrated posts, you shouldn\'t really expect anything one way or the other when browsing questionable posts.</p>
+	<h4>存疑的</h4>
+	<p>部分帖子难以判断安全与否，归入此类。</p>
 </div>
 
 <div class="section">
-	<h4>Search</h4>
-	<p>You can filter search results by querying for <code>rating:safe</code>, <code>rating:questionable</code>, or <code>rating:explicit</code>. You can also combine them with other tags and they work as expected.</p>
-	<p>If you want to remove a rating from your search results, use <code>-rating:safe</code>, <code>-rating:questionable</code>, and <code>-rating:explicit</code>.</p>
+	<h4>搜索</h4>
+	<p>你可以在搜索框输入以下关键字来只显示指定分级：</p>
+	<p><code>rating:safe</code>、<code>rating:questionable</code> 或 <code>rating:explicit</code></p>
+	<p>这些关键字不影响其他关键字。</p>
+	<p>如果你想屏蔽某个分级的帖子，可以使用以下关键字：</p>
+	<p> <code>-rating:safe</code>, <code>-rating:questionable</code>, and <code>-rating:explicit</code>.</p>
+	<p>（<code>safe</code>：安全的，<code>questionable</code>：存疑的，<code>explicit</code>：敏感的）</p>
+	<p>更详细的搜索请参阅 帮助：搜索。</p>
 </div>
 </div></body></html>

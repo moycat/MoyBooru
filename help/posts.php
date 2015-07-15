@@ -5,30 +5,31 @@
 
 <div id="content">
 <div class="help">
-  <h1>Help: Posts</h1>
-  <p>A post represents a single file that's been uploaded. Each post can have several tags, comments, and notes. If you have an account, you can also add a post to your favorites.</p>
+  <h1>帮助：帖子</h1>
+  <p>帖子指单个已被上传的文件。每篇帖子都有其标签、评论与注释。如果你注册了账户，你也可以将某个帖子加入收藏。</p>
   
 <div class="section">
-	<h4>Search</h4>
-	<p>Searching for posts is straightforward. Simply enter the tags you want to search for, separated by spaces. For example, searching for <code>original panties</code> will return every post that has both the original tag <strong>AND</strong> the panties tag.</p>
+	<h4>搜索</h4>
+	<p>搜索帖子非常简单，直接在搜索框输入想搜索的关键字，以空格分隔，便可找到对应的所有帖子。</p>
+	<p>例如搜索 <em>萨摩耶 猹</em> 将会得到所有同时具有“萨摩耶”和“猹”标签的帖子。</p>
 </div>
   
 <div class="section">
-	<h4>Tag List</h4>
-    <p>In both the listing page and the show page you'll notice a list of tag links with characters next to them. Here's an explanation of what they do: (Currently removed)</p>
+	<h4>标签列表</h4>
+    <p>在列表和帖子页面的左侧标签列表中，你会看到以下标志。</p>
     <dl>
       
       <dt>+</dt>
-      <dd>This adds the tag to the current search.</dd>
+      <dd>将这个标签加入当前的搜索。</dd>
 
       <dt>&ndash;</dt>
-      <dd>This adds the negated tag to the current search.</dd>
+      <dd>在当前的搜索中屏蔽这个标签。</dd>
            
       <dt>950</dt>
-      <dd>The number next to the tag represents how many posts there are. This isn't always the total number of posts for that tag. It may be slightly out of date as cache isn't always refreshed.</dd>
+      <dd>标签旁边的数字代表具有这个标签的帖子的总数。因为缓存，这个数字不一定准确。</dd>
 
     </dl>
-    <p>When you're not searching for a tag, by default the tag list will show the last few tags added to the database. When you are searching for tags, the tag list will show related tags, alphabetically.</p>
+    <p>当你没有进行搜索时，列表页左侧的标签栏将会显示最近加入数据库的标签。当你进行搜索时，结果页左侧的标签栏将会显示与之相关联的标签。</p>
 </div>
   
 </div></div></body></html>

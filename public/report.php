@@ -24,10 +24,10 @@
 				$row = $result->fetch_assoc();
 				$cache->destroy_page_cache("cache/".$row['post_id']);
 				$cache->create_page_cache("cache/".$row['post_id']);
-				print "pass";
+				print "成功";
 			}
 			else
-				print "fail";
+				print "失败";
 		}
 		else if($type == "post")
 		{
