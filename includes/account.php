@@ -12,9 +12,9 @@
 	}
 	else
 	{
-		print '<h2>你尚未登录</h2><h4><a href="index.php?page=login&amp;code=00">&raquo; 登录</a></h4><p>如果你已经注册过一个账户，你可以在此处登录。如果你的浏览器启用了cookies，你将在之后自动登录。</p>';
+		print '<h2>你尚未登录</h2><h4><a href="index.php?page=login&amp;code=00">&raquo; 登录</a></h4><p>如果你已经注册过一个账户，你可以在此处登录。<br>如果你的浏览器启用了cookies，以后你将会自动登录。</p>';
 		if($registration_allowed == true)
-			echo '<h4><a href="index.php?page=reg">&raquo; 注册</a></h4><p> '.$site_url3.' 上90%的功能不需要注册账户，但是注册后会解锁更多额外功能（如收藏等）。注册本站不需要提供电子邮件地址。</p>';
+			echo '<h4><a href="index.php?page=reg">&raquo; 注册</a></h4><p> '.$site_url3.' 上90%的功能不需要注册账户，但是注册后会解锁更多额外功能（如收藏等）。<br>注册本站不需要提供电子邮件地址。</p>';
 		else
 			echo '<p><b>注册功能已关闭</b></p>';
 	}

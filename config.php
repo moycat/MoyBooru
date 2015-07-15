@@ -5,10 +5,10 @@
 	$mysql_db = "moybooru";
 	
 //【站点基本设置】
-	//站点基本地址，以斜线结尾
-	$site_url = "http://booru.neko/";
-	//缩略图目录的URL
-	$thumbnail_url = "http://booru.neko/thumbnails/";
+	//站点基本地址（不要以斜线结尾，可不修改）
+	$site_url = "";
+	//缩略图目录的URL（不要以斜线结尾，可不修改）
+	$thumbnail_url = "/thumbnails";
 	//站点名，将会在头部显示
 	$site_url3 = "Moyyyyyy Booru";
 	//图片文件夹的名称

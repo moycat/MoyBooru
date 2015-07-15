@@ -40,13 +40,7 @@ Note.toggle = function() {
 
 Note.updateNoteCount = function() {
 	if (Note.all.length > 0) {
-		var label = ""
-
-		if (Note.all.length == 1)
-			label = "note"
-		else
-			label = "notes"
-
+		var label = "条注释"
 		$('note-count').innerHTML = "这篇帖子有 <a href=\"#\" onclick=\"document.location='index.php?page=history&type=page_notes&id=" + Note.post_id + "'\">" + Note.all.length + " " + label + "</a>"
 	} else {
 		$('note-count').innerHTML = ""
