@@ -12,17 +12,17 @@
 		$result = $db->query($query);
 		$row = $result->fetch_assoc();
 		if($row['COUNT(*)'] > 0)
-			echo "<b>Tag/alias combination has already been requested.</b><br /><br />";
+			echo "<b>标签-别名组合已经提交</b><br /><br />";
 		else
 		{
 			$query = "INSERT INTO $alias_table(tag, alias, status) VALUES('$tag', '$alias', 'pending')";
 			$db->query($query);
-			echo "<b>Tag/alias combination has been requested.</b><br /><br />";
+			echo "<b>标签-别名组合已经提交</b><br /><br />";
 		}
 	}
 
-	echo 'You can suggest a new alias, but they must be approved by an administrator before they are activated.<br />
-	<div style="color: #ff0000;">An example of how to use this: (Evangelion is the tag and Neon_Genesis_Evangelion is the alias.)</div><br /><br />
+	echo '你可以申请建立一个标签-别名组合，但在其可用前需要先通过管理员的批准<br />
+	<div style="color: #ff0000;">例子：美国可以是美利坚合众国的别名</div><br /><br />
 	';
 
 	if(isset($_GET['pid']) && $_GET['pid'] != "" && is_numeric($_GET['pid']) && $_GET['pid'] >= 0)
@@ -38,7 +38,7 @@
 	$query = "SELECT * FROM $alias_table WHERE status != 'rejected' ORDER BY alias ASC LIMIT $page, $limit";
 	$result = $db->query($query) or die($db->error);
 	$ccount = 0;
-	print '<table class="highlightable" style="width: 100%;"><tr><th width="25%"><b>Tag:<small> (What you search for...)</small></b></th><th width="25%"><b>Alias:</b><small> (What it should be...)</small></th><th>Reason:</th></tr>';
+	print '<table class="highlightable" style="width: 100%;"><tr><th width="25%"><b>标签：<small>（你在搜索框中输入的）</small></b></th><th width="25%"><b>别名：</b><small>（它应该是）</small></th><th>理由：</th></tr>';
 	while($row = $result->fetch_assoc())
 	{
 		if($row['status']=="pending")
@@ -49,10 +49,10 @@
 	}
 	echo '</table><br /><br />
 	<form method="post" action=""><table><tr><td>
-	<b>Name:</b></td><td><input type="text" name="alias" value=""/></td></tr>
-	<tr><td><b>Alias to:</b></td><td><input type="text" name="tag" value=""/></td></tr>
+	<b>别名：</b></td><td><input type="text" name="alias" value=""/></td></tr>
+	<tr><td><b>别名至：</b></td><td><input type="text" name="tag" value=""/></td></tr>
 	</table>
-	<input type="submit" name="submit" value="Submit"/>
+	<input type="submit" name="submit" value="提交"/>
 	</form>
 	<div id="paginator">';
 	$misc = new misc();

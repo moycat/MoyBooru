@@ -23,17 +23,17 @@
 				$misc = new misc();
 				$code = hash('sha256',rand(132,1004958327747882664857));
 				$link = $site_url."/index.php?page=reset_password&code=".$code."&id=".$row['id'];
-				$body = 'A password reset has been requested for your account.<br /><br /> If you didn\'t request this, please ignore this email.<br /><br />To reset you password, please click on this link: <a href="'.$link.'">'.$link.'</a>';
+				$body = '你的账户正在申请找回密码。<br /><br /> 如果你没有申请，请忽略这封邮件。<br /><br />为了重置你的密码，请点击下面的链接： <a href="'.$link.'">'.$link.'</a>';
 				$misc->send_mail($row['email'],$email_recovery_subject,$body);
 				$query = "UPDATE $user_table SET mail_reset_code='$code' WHERE id='".$row['id']."'";				
 				$db->query($query);				
-				print "An email with a reset link has been sent to your mailbox.<br />";
+				print "一封带有重置密码链接的邮件已经发至你的邮箱。<br />";
 			}
 			else
-				print "No email has been added to this account.<br />";
+				print "你的账户没有设置邮箱。<br />";
 		}
 		else
-			print "No email has been added to this account.<br />";
+			print "你的账户没有设置邮箱。<br />";
 	}
 	if(isset($_GET['code']) && $_GET['code'] != "" && isset($_GET['id']) && $_GET['id'] != "" && is_numeric($_GET['id']))
 	{
@@ -47,18 +47,18 @@
 			$_SESSION['tmp_id'] = $id;
 			echo '<form method="post" action="index.php?page=reset_password">
 			<table><tr><td>
-			Enter your new password: 
+			输入你的新密码：
 			<input type="password" name="new_password" value="" />
 			</td></tr>
 			<tr><td>
-			<input type="submit" name="submit" value="submit" />
+			<input type="submit" name="submit" value="提交" />
 			</td></tr>
 			</table>				
 			</form>';
 		}
 		else
 		{
-			print "Invalid reset link.<br />";
+			print "无效的密码重置链接。<br />";
 		}
 	}
 	if(isset($_POST['new_password']) && $_POST['new_password'] != "" && isset($_SESSION['tmp_id']) && $_SESSION['tmp_id'] != "" && is_numeric($_SESSION['tmp_id']) && isset($_SESSION['reset_code']) && $_SESSION['reset_code'] != "")
@@ -76,7 +76,7 @@
 			$db->query($query);
 			unset($_SESSION['tmp_id']);
 			unset($_SESSION['reset_code']);
-			print "Your password has been changed.<br />";
+			print "你的密码已修改。<br />";
 		}	
 	}
 	if(!isset($_GET['code']) && $_GET['code'] == "")
@@ -87,7 +87,7 @@
 		<input type="text" name="username" value="" />
 		</td></tr>
 		<tr><td>
-		<input type="submit" name="submit" value="submit" />
+		<input type="submit" name="submit" value="提交" />
 		</td></tr>
 		</table></form>';
 	}

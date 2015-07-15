@@ -81,33 +81,33 @@
 ?>
 <div id="content">
 <form action="" method="post">
-<p><em>Separate individual tags and users with spaces.</em> You must have cookies and JavaScript enabled in order for filtering to work. Note that the user blacklist is case sensitive.</p>
+<p><em>用空格分隔独立的标签或用户</em> 你必须开启cookies和JavaScript支持才能使用过滤器。用户名称区分大小写。</p>
 
 <div class="option">
 <table cellpadding="0" cellspacing="4">
 <tr><td>
-<label class="block">Tag Blacklist</label><p>Any post containing a blacklisted tag will be ignored. Note that you can also blacklist ratings.</p>
+<label class="block">标签黑名单</label><p>任何带有黑名单内标签的帖子都会被屏蔽。你也可以屏蔽指定的分级。</p>
 </td><td>
 <textarea name="tags" rows="20" cols="50"><?php $new_tag_list != "" ? print $new_tag_list : print str_replace('%20',' ', str_replace("&#039;","'",$_COOKIE['tag_blacklist'])); ?></textarea>
 </td></tr>
 <tr><td>
-<label class="block">User Blacklist</label><p>Any post or comment from a blacklisted user will be ignored.</p>
+<label class="block">用户黑名单</label><p>黑名单中任何用户发布的帖子都将被屏蔽。</p>
 </td><td>
 <input type="text" name="users" value="<?php $new_user_list != "" ? print $new_user_list : print str_replace('%20',' ', str_replace("&#039;","'", $_COOKIE['user_blacklist'])); ?>"/>
 </td></tr>
 <tr><td>
-<label class="block">Comment Threshold</label>	<p>Any comment with a score below this will be ignored.</p>
+<label class="block">评论阈值</label>	<p>任何投票评分低于此值的评论都将被屏蔽。</p>
 </td><td>
 <input type="text" name="cthreshold" value="<?php ($new_cthreshold == "" && !isset($_COOKIE['comment_threshold'])) ? print 0 : $new_threshold != "" ? print $new_cthreshold : print $_COOKIE['comment_threshold']; ?>"/>
 </td></tr>
 <tr><td>
-<label class="block">Post Threshold</label><p>Any post with a score below this will be ignored.</p>
+<label class="block">帖子阈值</label><p>任何投票评分低于此值的帖子都将被屏蔽。</p>
 </td><td>
 <input type="text" name="pthreshold" value="<?php ($new_pthreshold == "" && !isset($_COOKIE['post_threshold'])) ? print 0 : $new_pthreshold != "" ? print $new_pthreshold : print $_COOKIE['post_threshold']; ?>"/>
 </td></tr>
 <tr><td>
-<label class="block">My Tags</label>
-<p>These will be accessible when you add or edit a post.</p>
+<label class="block">我的标签</label>
+<p>当你发表与编辑帖子时，可以快速选择这里设置的标签。</p>
 </td><td>
 <textarea name="my_tags" rows="30" cols="50"><?php $new_my_tags != "" ? print $new_my_tags : print str_replace("%20", " ",str_replace('&#039;',"'",$_COOKIE['tags']));?></textarea>	
 </td></tr></table>

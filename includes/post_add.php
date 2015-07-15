@@ -7,7 +7,7 @@
 	$ip = $db->real_escape_string($_SERVER['REMOTE_ADDR']);	
 	if($userc->banned_ip($ip))
 	{
-		print "Action failed: ".$row['reason'];
+		print "执行失败： ".$row['reason'];
 		exit;
 	}	
 	if(!$userc->check_log())
@@ -22,7 +22,7 @@
 	}
 	if($no_upload)
 	{
-		print "You do not have permission to upload.";
+		print "你没有上传的权限";
 		exit;
 	}
 	if(isset($_POST['submit']))
@@ -35,7 +35,7 @@
 		{
 			$iinfo = $image->getremoteimage($_POST['source']);
 			if($iinfo === false)
-				$error = $image->geterror()."<br />Could not add the image.";
+				$error = $image->geterror()."<br />无法添加图片";
 			else
 				$uploaded_image = true;
 		}
@@ -43,12 +43,12 @@
 		{
 			$iinfo = $image->process_upload($_FILES['upload']);
 			if($iinfo === false)
-				$error = $image->geterror()."<br />An error occured. The image could not be added because it already exists or it is corrupted.";
+				$error = $image->geterror()."<br />发生了一个错误。这张图片可能已经存在或者曾被删除";
 			else
 				$uploaded_image = true;
 		}
 		else
-			print "No image given for upload.";
+			print "没有接收到文件";
 		if($uploaded_image == true)
 		{
 			$iinfo = explode(":",$iinfo);
@@ -130,10 +130,10 @@
 			if(!is_dir("./thumbnails/".$iinfo[0]."/"))
 				$image->makethumbnailfolder($iinfo[0]);
 			if(!$image->thumbnail($iinfo[0]."/".$iinfo[1]))
-				print "Thumbnail generation failed! A serious error occured and the image could not be resized.<br /><br />";
+				print "缩略图生成失败！ 图片缩放过程中发生了一个严重错误<br /><br />";
 			if(!$db->query($query))
 			{
-				print "failed to upload image."; print $query;
+				print "上传图片失败"; print $query;
 				unlink("./images/".$iinfo[0]."/".$iinfo[1]);
 				$image->folder_index_decrement($iinfo[0]);
 				$ttags = explode(" ",$tags);
@@ -185,31 +185,30 @@
 ?>
 	<form method="post" target="" enctype="multipart/form-data">
 	<table><tr><td>
-	File:<br />
+	文件：<br />
 	<input type="file" name="upload" />
 	<td></tr>
 	<tr><td>
-	Source:<br />
+	来源：<br />
 	<input type="text" name="source" value="" />
 	</td></tr>
 	<tr><td>
-	Title:<br />
+	标题：<br />
 	<input type="text" name="title" value="" />
 	</td></tr>
 	<tr><td>
-	Tags:<br />
+	标签<br />
 	<input type="text" id="tags" name="tags" value="" /><br />
-	&nbsp;&nbsp;&nbsp;&nbsp;Separate tags with spaces. (ex: green_eyes purple green_hair)
+	&nbsp;&nbsp;&nbsp;&nbsp;以空格分隔（例如：萨摩耶 猹）
 	</td></tr>
 	<tr><td>
 	Rating:<br />
-	<input type="radio" name="rating" value="e" />Explicit
-	<input type="radio" name="rating" value="q" checked="true" />Questionable
-	<input type="radio" name="rating" value="s" />Safe
-	</td></tr>
+	<input type="radio" name="rating" value="e" />敏感的
+	<input type="radio" name="rating" value="q" checked="true" />存疑的
+	<input type="radio" name="rating" value="s" />安全的
 	<tr><td>
-	My Tags:<br />
-	<?php if(isset($_COOKIE['tags']) && $_COOKIE['tags'] != ""){$tags = explode(" ",str_replace('%20',' ',$_COOKIE['tags'])); foreach($tags as $current){echo "<a href=\"index.php?page=post&s=list&tags=".$current."\" id=\"t_".$current.'" onclick="toggleTags(\''.$current.'\',\'tags\',\'t_'.$current.'\'); return false;">'.$current.' </a>';}}else{echo '<a href="index.php?page=account-options">Edit</a>';} ?>
+	我的标签：<br />
+	<?php if(isset($_COOKIE['tags']) && $_COOKIE['tags'] != ""){$tags = explode(" ",str_replace('%20',' ',$_COOKIE['tags'])); foreach($tags as $current){echo "<a href=\"index.php?page=post&s=list&tags=".$current."\" id=\"t_".$current.'" onclick="toggleTags(\''.$current.'\',\'tags\',\'t_'.$current.'\'); return false;">'.$current.' </a>';}}else{echo '<a href="index.php?page=account-options">编辑</a>';} ?>
 	<td></tr>
 	<tr><td>
 	<input type="submit" name="submit" value="Upload" />

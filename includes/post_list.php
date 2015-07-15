@@ -15,12 +15,12 @@ var posts = {}; var pignored = {};
 <div id="content"><div id="post-list">
 <div class="sidebar">
 <div class="space">
-<h5>Search</h5>
+<h5>搜索</h5>
 <form action="index.php?page=search" method="post">
 <input id="tags" name="tags" size="20" type="text" value="<?php if(isset($_GET['tags']) && $_GET['tags'] != "all"){ print str_replace("%",'',str_replace("'","&#039;",str_replace('"','&quot;',$_GET['tags'])));}?>" />
-<br /><input name="commit" style="margin-top: 3px; background: #fff; border: 1px solid #dadada; width: 172px;" type="submit" value="Search" />
+<br /><input name="commit" style="margin-top: 3px; background: #fff; border: 1px solid #dadada; width: 172px;" type="submit" value="搜索" />
 </form>
-<small>(Supports wildcard *)</small>
+<small>（支持通配符 *）</small>
 </div>
 <div class="space"></div>
 <div id="tag_list">
@@ -106,7 +106,7 @@ var posts = {}; var pignored = {};
 	}
 	//No images found
 	if($numrows == 0)
-		print '</ul></div></div><div class="content"><div><h1>Nobody here but us chickens!</h1>';
+		print '</ul></div></div><div class="content"><div><h1>Signifying nothing.</h1>';
 	else
 	{
 		if(isset($_GET['pid']) && $_GET['pid'] != "" && is_numeric($_GET['pid']) && $_GET['pid'] >= 0)

@@ -1,11 +1,11 @@
 <?php
 	if($registration_allowed != true)
-		die("<br /><b>Registration is closed.</b>");
+		die("<br /><b>注册功能已关闭</b>");
 	$user = new user();
 	$ip = $db->real_escape_string($_SERVER['REMOTE_ADDR']);	
 	if($user->banned_ip($ip))
 	{
-		print "Action failed: ".$row['reason'];
+		print "执行失败：".$row['reason'];
 		exit;
 	}	
 	if($user->check_log())
@@ -26,7 +26,7 @@
 			if(!$user->signup($username,$password,$email))
 			{
 				require "includes/header.php";
-				print "Signup failed. This can be caused by: a database error, a user with that username already exists, or your nick contains characters that are not allowed. Please make sure that your nick doesn't contain space, tab, ; or ,. Please also makes sure that your nick is atleast 3 characters.<br />";
+				print "注册失败。可能的原因：数据库错误，用户名已存在，或你的用户名中有不允许的字符。请确认用户名不含制表符、空格、分号、逗号。也请确认用户名长度不小于3。<br />";
 			}
 			else
 			{
@@ -38,7 +38,7 @@
 		else
 		{
 			require "includes/header.php";
-			print "Passwords does not match.<br />";
+			print "密码不匹配。<br />";
 		}
 	}
 	else
@@ -46,23 +46,23 @@
 ?>
 <form method="post" action="index.php?page=reg">
 <table><tr><td>
-Username:<br />
+用户名：<br />
 <input type="text" name="user" value="" />
 </td></tr>
 <tr><td>
-Choose password:<br />
+密码：<br />
 <input type="password" name="pass" value="" />
 </td></tr>
 <tr><td>
-Confirm password:<br />
+确认密码：<br />
 <input type="password" name="conf_pass" value="" />
 </td></tr>
 <tr><td>
-Email (not required):<br />
+E-mail（非必需，找回密码需要）：<br />
 <input type="text" name="email" value="" />
 </td></tr>
 <tr><td>
-<input type="submit" name="submit" value="Register" />
+<input type="submit" name="submit" value="注册" />
 </td></tr>
 </table>
 </form></div></body></html>

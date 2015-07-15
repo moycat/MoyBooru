@@ -41,33 +41,33 @@
 				<div>
 					<table width="100%" class="highlightable">
 		<tr>
-		  <td width="20%"><strong>Join Date</strong></td>
+		  <td width="20%"><strong>注册日期</strong></td>
 		  <td width="80%"><?php if(!is_null($row['signup_date']) && $row['signup_date']!=""){ print mb_substr($row['signup_date'],0,strlen($row['signup_date'])-9,'UTF-8');} else { echo "N/A";} ?></td>
 		</tr>
 		<tr>
-		  <td><strong>Level</strong></td>
+		  <td><strong>等级</strong></td>
 		  <td>
 		   <?php print ucfirst(mb_strtolower($row['group_name'],'UTF-8')); ?>
 		  </td>
 		</tr>
 		<tr>
-		  <td><strong>Posts</strong></td>
+		  <td><strong>帖子</strong></td>
 		  <td><a href="index.php?page=post&amp;s=list&amp;tags=user:<?php print $row['user']; ?>"><?php print $row['post_count']; ?></a></td>
 		</tr>
 		<tr>
-		  <td><strong>Favorites</strong></td>
+		  <td><strong>收藏</strong></td>
 		  <td><a href="index.php?page=favorites&amp;s=view&amp;id=<?php print $id;?>"><?php print $row['fcount']; ?></a></td>
 		</tr>
 		<tr>
 
-		  <td><strong>Comments</strong></td>
+		  <td><strong>评论</strong></td>
 		  <td><?php print $row['comment_count']; ?></td>
 		</tr>
 		<tr>
-		  <td><strong>Tag Edits</strong></td>
+		  <td><strong>编辑标签</strong></td>
 		  <td><a href="index.php?page=account&amp;s=tag_edits&id=<?php echo $id; ?>"><?php print $row['tag_edit_count']; ?></a></td>
 		</tr>
-		  <td><strong>Forum Posts</strong></td>
+		  <td><strong>论坛帖子</strong></td>
 		  <td><?php print $row['forum_post_count']; ?></td>
 		</tr>
 	  </table>
@@ -86,7 +86,7 @@
 			<a href="#" id="blacklisted-sidebar"></a>
 		</div>
 	<div style="margin-bottom: 1em; float: left; clear: both;">
-	  <h4>Recent Favorites</h4>
+	  <h4>最近收藏</h4>
 	  <div>
 <?php 
 		$query = "SELECT favorite FROM $favorites_table WHERE user_id='$id' ORDER BY added DESC LIMIT 5";
@@ -108,7 +108,7 @@
 		}
 		if($result->num_rows<1)
 		{
-			print '<p>Nobody here but us chickens!</p>';
+			print '<p>Signifying nothing.</p>';
 		}
 ?>
 </div>
@@ -132,7 +132,7 @@
 		}
 		if($result->num_rows<1)
 		{
-			echo '<p>Nobody here but us chickens!</p>';
+			echo '<p>Signifying nothing.</p>';
 		}
 		$result->close();
 		echo'<script type="text/javascript">

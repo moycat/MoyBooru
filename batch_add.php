@@ -30,7 +30,7 @@
 				$dl_url = $site_url.$path.rawurlencode($current_folder)."/".rawurlencode($file);
 				$iinfo = $image->getremoteimage($dl_url);
 				if($iinfo === false)
-					$error = $image->geterror()."<br />不能添加这个图片。";
+					$error = $image->geterror()."<br />不能添加这个图片";
 				else
 					$uploaded_image = true;	
 				//Ok, download of image was successful! (yay?)

@@ -9,7 +9,7 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="'.$site_url.'default.css?2" title="default" />
 		<link rel="search" type="application/opensearchdescription+xml" title="'.$site_url3.'" href="'.$site_url.'/default.xml" />
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="A very large imageboard for Japanese related content that is anonymous." />
+		<meta name="description" content="一个可匿名的图片/视频分享站点。" />
 		<script src="'.$site_url.'script/prototype.js?2" type="text/javascript"></script>
 		<script src="'.$site_url.'script/global.js?2" type="text/javascript"></script>
 		<script src="'.$site_url.'script/scriptaculous.js?2" type="text/javascript"></script>
@@ -28,12 +28,12 @@
 		<h2><a href="'.$site_url.'index.php">'.$site_url3.'</a></h2>
 				<ul class="flat-list" id="navbar">
 
-			<li><a href="'.$site_url.'index.php?page=account">My Account</a></li>
-			<li><a href="'.$site_url.'index.php?page=post&amp;s=list&amp;tags=all">Posts</a></li>
-			<li><a href="'.$site_url.'index.php?page=comment&amp;s=list">Comments</a></li>
-			<li><a href="'.$site_url.'index.php?page=alias&amp;s=list">Alias</a></li>
-			<li><a href="'.$site_url.'index.php?page=forum&amp;s=list">Forum</a></li>
-			<li><a href="'.$site_url.'index.php?page=post&amp;s=random">Random</a></li>
+			<li><a href="'.$site_url.'index.php?page=account">我的账户</a></li>
+			<li><a href="'.$site_url.'index.php?page=post&amp;s=list&amp;tags=all">帖子</a></li>
+			<li><a href="'.$site_url.'index.php?page=comment&amp;s=list">评论</a></li>
+			<li><a href="'.$site_url.'index.php?page=alias&amp;s=list">别名</a></li>
+			<li><a href="'.$site_url.'index.php?page=forum&amp;s=list">论坛</a></li>
+			<li><a href="'.$site_url.'index.php?page=post&amp;s=random">随机</a></li>
 			<li><a href="'.$site_url.'help/index.php">Help</a></li>
 ';
 ?><li id="notice"></li></ul></div><div id="long-notice"></div>

@@ -126,7 +126,7 @@
 		$row = $result->fetch_assoc();
 		if($row['pcount'] == 0)
 		{
-			echo '<h1>Nobody here but us chickens!</h1>';
+			echo '<h1>Signifying nothing.</h1>';
 			exit;
 		}
 		$numrows = $row['pcount'];
@@ -161,7 +161,7 @@
 				$ttags = explode(" ",$tags);
 				if($tcount > 0)
 				{
-					$images .= '</div><div class="col3"><ul class="post-info"><li>'.$pat.'</li><li>rating:'.$rating.'</li><li>user:'.$user.'</li>';
+					$images .= '</div><div class="col3"><ul class="post-info"><li>'.$pat.'</li><li>分级：'.$rating.'</li><li>用户：'.$user.'</li>';
 					$ttcount = 0;
 					foreach($ttags as $current)
 					{
@@ -196,10 +196,10 @@
 				$images .= '<div class="col1"><a href="index.php?page=post&amp;s=view&amp;id='.$row['post_id'].'"><img src="'.$thumbnail_url.'/'.$row['dir'].'/thumbnail_'.$row['image'].'" border="0" class="preview" title="'.$tags.'" alt="thumbnail"/></a></div><div class="col2">';
 				$img = $row['image'];
 			}
-			$images .= '<div class="comment" id="c'.$row['id'].'"><h4><a href="index.php?page=account_profile&amp;uname='.$row['user'].'">'.$row['user'].'</a></h4><h6 class="comment-header">Posted on '.$posted_at.'  ('; $row['spam'] == false ? $images .= '<a id="rc'.$row['id'].'"></a><a href="#" id="rcl'.$row['id'].'" onclick="Javascript:spam(\'comment\',\''.$row['id'].'\')">Flag for deletion</a>)</h6>' : $images .= "<b>Already flagged</b>)</h6>"; $images .= "<div id=\"cbody".$row['id']."\"><p>".$misc->swap_bbs_tags($misc->short_url($misc->linebreaks($row['comment'])))."</p></div></div>
+			$images .= '<div class="comment" id="c'.$row['id'].'"><h4><a href="index.php?page=account_profile&amp;uname='.$row['user'].'">'.$row['user'].'</a></h4><h6 class="comment-header">Posted on '.$posted_at.'  ('; $row['spam'] == false ? $images .= '<a id="rc'.$row['id'].'"></a><a href="#" id="rcl'.$row['id'].'" onclick="Javascript:spam(\'comment\',\''.$row['id'].'\')">请求删除</a>)</h6>' : $images .= "<b>已经请求</b>)</h6>"; $images .= "<div id=\"cbody".$row['id']."\"><p>".$misc->swap_bbs_tags($misc->short_url($misc->linebreaks($row['comment'])))."</p></div></div>
 			<script type=\"text/javascript\">
 			//<![CDATA[
-			posts.comments[".$row['id']."] = {'score':".$row['score'].", 'user':'".str_replace('\\',"&#92;",str_replace(' ','%20',str_replace("'","&#039;",$row['user'])))."', 'post_id':'".$row['post_id']."'}
+			posts.comments[".$row['id']."] = {'score':".$row['score'].", '用户：'".str_replace('\\',"&#92;",str_replace(' ','%20',str_replace("'","&#039;",$row['user'])))."', 'post_id':'".$row['post_id']."'}
 			//]]>
 			</script>";	
 			++$ccount;
@@ -209,7 +209,7 @@
 		}
 		$ttags = explode(" ",$tags);
 		$images .= '</div><div class="col3"><ul class="post-info">';
-		$images .= "<li>$pat</li><li>rating:$rating</li><li>user:".htmlentities($user, ENT_QUOTES, 'UTF-8')."</li>";
+		$images .= "<li>$pat</li><li>分级：$rating</li><li>user:".htmlentities($user, ENT_QUOTES, 'UTF-8')."</li>";
 		$ttcount = 0;
 		foreach($ttags as $current)
 		{

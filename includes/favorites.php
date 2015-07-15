@@ -29,7 +29,7 @@
 		$numrows = $row['fcount'];
 		$result->free_result();
 		if($numrows < 1)
-			die("<h1>You have no favorites.</h1>");
+			die("<h1>暂无收藏</h1>");
 		$images = '';
 		$query = "SELECT t2.id, t2.image, t2.directory as dir, t2.tags, t2.owner, t2.score, t2.rating FROM $favorites_table as t1 JOIN $post_table AS t2 ON t2.id=t1.favorite WHERE t1.user_id='$id' LIMIT $page, $limit";
 		$result = $db->query($query);
@@ -69,7 +69,7 @@
 		header("Cache-Control: store, cache");
 		header("Pragma: cache");
 		require "includes/header.php";
-		echo'<div id="content"><div id="account-favorites-list"><table width="100%"><tr><th width="30%">User</th><th width="70%">Count</th></tr>';
+		echo'<div id="content"><div id="account-favorites-list"><table width="100%"><tr><th width="30%">用户</th><th width="70%">计数</th></tr>';
 		if(isset($_GET['pid']) && $_GET['pid'] != "" && is_numeric($_GET['pid']) && $_GET['pid'] >= 0)
 			$page = $db->real_escape_string($_GET['pid']);
 		else
@@ -80,7 +80,7 @@
 		$numrows = $row['COUNT(*)'];
 		$result->free_result();
 		if($numrows < 1)
-			die("</table></div><h1>No favorites exists.</h1></div></body></html>");
+			die("</table></div><h1>暂无收藏</h1></div></body></html>");
 		$uid = '';
 		$query = "SELECT t2.user, t1.user_id, t1.fcount FROM $favorites_count_table AS t1 JOIN $user_table AS t2 ON t2.id=t1.user_id ORDER BY t2.user ASC LIMIT $page, $limit";
 		$result = $db->query($query);
