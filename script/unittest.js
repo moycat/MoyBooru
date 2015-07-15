@@ -448,10 +448,10 @@ Test.Unit.Assertions.prototype = {
     return this._isVisible(element.parentNode);
   },
   assertNotVisible: function(element) {
-    this.assert(!this._isVisible(element), Test.Unit.inspect(element) + " was not hidden and didn't have a hidden parent either. " + ("" || arguments[1]));
+    this.assert(!this._isVisible(element), Test.Unit.inspect(element) + " 未被隐藏，且无被隐藏的父帖子 " + ("" || arguments[1]));
   },
   assertVisible: function(element) {
-    this.assert(this._isVisible(element), Test.Unit.inspect(element) + " was not visible. " + ("" || arguments[1]));
+    this.assert(this._isVisible(element), Test.Unit.inspect(element) + " 可见 " + ("" || arguments[1]));
   },
   benchmark: function(operation, iterations) {
     var startAt = new Date();

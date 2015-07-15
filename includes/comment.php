@@ -226,7 +226,7 @@
 		posts.totalcount['.$lastpid.'] = \''.$ptcount.'\'
 		//]]>
 		</script>
-		<br /><a href="#" id="ci" onclick="showHideCommentListIgnored(); return false;">(0 hidden)</a><br /><br />
+		<br /><a href="#" id="ci" onclick="showHideCommentListIgnored(); return false;">（0 条被隐藏）</a><br /><br />
 		<script type="text/javascript">
 		//<![CDATA[
 		filterCommentList(\''.$ccount.'\')

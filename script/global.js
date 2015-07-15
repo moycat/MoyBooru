@@ -240,7 +240,7 @@ function filterComments(post_id, comment_size)
 
 	if (cignored.length > 0) 
 	{
-		$('ci').innerHTML = ' (' + cignored.length + ' hidden)'
+		$('ci').innerHTML = ' （' + cignored.length + ' 篇被隐藏）'
 	}
 }
 function readCookie(name) 
@@ -275,13 +275,13 @@ function showHideIgnored(post_id,id)
 			j++
 			showHide('c' + i)
 		}
-		if($('ci').innerHTML != " (" + j + " hidden)")
+		if($('ci').innerHTML != " （" + j + " 篇被隐藏）")
 		{
-			$('ci').innerHTML = " (" + j + " hidden)"
+			$('ci').innerHTML = " （" + j + " 篇被隐藏）"
 		}
 		else
 		{
-			$('ci').innerHTML = " (0 hidden)"
+			$('ci').innerHTML = " （0 篇被隐藏）"
 		}
 	}
 	else if(id == 'pi')
@@ -291,13 +291,13 @@ function showHideIgnored(post_id,id)
 			j++
 			showHide('p' + i)
 		}
-		if($('pi').innerHTML != "(" + j + " post" + (j == 1 ? '' : 's') + " hidden)" && j > 0)
+		if($('pi').innerHTML != "（" + j + " post" + (j == 1 ? '' : 's') + " 篇被隐藏）" && j > 0)
 		{
-			$('pi').innerHTML = "(" + j + " post" + (j == 1 ? '' : 's') + " hidden)"
+			$('pi').innerHTML = "（" + j + " post" + (j == 1 ? '' : 's') + " 篇被隐藏）"
 		}
-		else if($('pi').innerHTML == "(" + j + " post" + (j == 1 ? '' : 's') + " hidden)" && j > 0)
+		else if($('pi').innerHTML == "（" + j + " post" + (j == 1 ? '' : 's') + " 篇被隐藏）" && j > 0)
 		{
-			$('pi').innerHTML = "(0 posts hidden)"
+			$('pi').innerHTML = "（0 篇被隐藏）"
 		}
 		else
 		{
@@ -357,7 +357,7 @@ function filterPosts(posts) {
 	}
 
 	if (ignored.length > 0) {
-		$('pi').innerHTML="(" + ignored.length + " post" + (ignored.length == 1 ? '' : 's') + " hidden)"
+		$('pi').innerHTML="（" + ignored.length + " post" + (ignored.length == 1 ? '' : 's') + " 篇被隐藏）"
 	}
 }
 function filterCommentList(comment_size) 
@@ -445,7 +445,7 @@ function filterCommentList(comment_size)
 	}
 	if (cignored.length > 0) 
 	{
-		$('ci').innerHTML = '(' + cignored.length + ' hidden)'
+		$('ci').innerHTML = '（' + cignored.length + ' 篇被隐藏）'
 	}
 }
 function showHideCommentListIgnored(id)
@@ -462,13 +462,13 @@ function showHideCommentListIgnored(id)
 			lastpid = posts.comments[i].post_id;
 		}
 	}
-	if($('ci').innerHTML != "(" + j + " hidden)")
+	if($('ci').innerHTML != "（" + j + " 篇被隐藏）")
 	{
-		$('ci').innerHTML = "(" + j + " hidden)"
+		$('ci').innerHTML = "（" + j + " 篇被隐藏）"
 	}
 	else
 	{
-		$('ci').innerHTML = "(0 hidden)"
+		$('ci').innerHTML = "（0 篇被隐藏）"
 	}
 }
 function select_image_domain(creation_date,image_path)
