@@ -49,8 +49,8 @@
 	}
 	echo '</table><br /><br />
 	<form method="post" action=""><table><tr><td>
-	<b>别名：</b></td><td><input type="text" name="alias" value=""/></td></tr>
-	<tr><td><b>别名至：</b></td><td><input type="text" name="tag" value=""/></td></tr>
+	<b>别名</b></td><td><input type="text" name="alias" value=""/></td></tr>
+	<tr><td><b>别名至</b></td><td><input type="text" name="tag" value=""/></td></tr>
 	</table>
 	<input type="submit" name="submit" value="提交"/>
 	</form>

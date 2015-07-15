@@ -81,7 +81,7 @@
 ?>
 <div id="content">
 <form action="" method="post">
-<p><em>用空格分隔独立的标签或用户</em> 你必须开启cookies和JavaScript支持才能使用过滤器。用户名称区分大小写。</p>
+<p><em>不同的标签或用户用空格分隔</em> 你必须开启cookies和JavaScript支持才能使用过滤器。用户名称区分大小写。</p>
 
 <div class="option">
 <table cellpadding="0" cellspacing="4">
@@ -113,6 +113,6 @@
 </td></tr></table>
 </div>
 <div class="option">
-<input type="submit" name="submit" value="Save"/>
+<input type="submit" name="submit" value="保存"/>
 </div>
 </form></div></body></html>

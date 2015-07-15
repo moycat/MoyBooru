@@ -34,6 +34,6 @@
 			<li><a href="'.$site_url.'index.php?page=alias&amp;s=list">别名</a></li>
 			<li><a href="'.$site_url.'index.php?page=forum&amp;s=list">论坛</a></li>
 			<li><a href="'.$site_url.'index.php?page=post&amp;s=random">随机</a></li>
-			<li><a href="'.$site_url.'help/index.php">Help</a></li>
+			<li><a href="'.$site_url.'help/index.php">帮助</a></li>
 ';
 ?><li id="notice"></li></ul></div><div id="long-notice"></div>

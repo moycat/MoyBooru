@@ -37,7 +37,7 @@
 			<div id="content">
 			<h2><?php print $row['user'];
 			$user2 = new user();
-			if($user2->gotpermission('is_admin')){echo ' | <a href="'.$site_url.'/admin/index.php?page=ban_user&user_id='.$id.'">Ban User</a>';}?></h2>
+			if($user2->gotpermission('is_admin')){echo ' | <a href="'.$site_url.'/admin/index.php?page=ban_user&user_id='.$id.'">封禁用户</a>';}?></h2>
 				<div>
 					<table width="100%" class="highlightable">
 		<tr>
@@ -45,7 +45,7 @@
 		  <td width="80%"><?php if(!is_null($row['signup_date']) && $row['signup_date']!=""){ print mb_substr($row['signup_date'],0,strlen($row['signup_date'])-9,'UTF-8');} else { echo "N/A";} ?></td>
 		</tr>
 		<tr>
-		  <td><strong>等级</strong></td>
+		  <td><strong>分组</strong></td>
 		  <td>
 		   <?php print ucfirst(mb_strtolower($row['group_name'],'UTF-8')); ?>
 		  </td>
@@ -114,7 +114,7 @@
 </div>
 </div>
 <div style="margin-bottom: 1em;  float: left; clear: both;">
-<h4>Recent Uploads <a href="index.php?page=post&amp;s=list&amp;tags=user:<?php print $user; ?>">&raquo;</a></h4>
+<h4>最近上传 <a href="index.php?page=post&amp;s=list&amp;tags=user:<?php print $user; ?>">&raquo;</a></h4>
 <div>
 <?php
 		$query = "SELECT id, directory as dir, image, tags, rating, score, owner FROM $post_table WHERE owner='$user' ORDER BY id DESC LIMIT 5";

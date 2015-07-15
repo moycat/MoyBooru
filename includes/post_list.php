@@ -24,7 +24,7 @@ var posts = {}; var pignored = {};
 </div>
 <div class="space"></div>
 <div id="tag_list">
-<h5>Tags</h5>
+<h5>标签</h5>
 <ul>
 <?php
 	/*Begining of tag listing on left side of site.
@@ -207,5 +207,5 @@ var posts = {}; var pignored = {};
 		}
 	}
 ?>
-</div><div id="footer"><a href="index.php?page=post&amp;s=add">Add</a> | <a href="help/">Help</a></div><br /><br />
+</div><div id="footer"><a href="index.php?page=post&amp;s=add">发表</a> | <a href="help/">帮助</a></div><br /><br />
 </div></div></div></body></html>

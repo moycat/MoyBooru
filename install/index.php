@@ -22,16 +22,16 @@
 <h1>MoyBooru安装程序</h1>
 <form method="post" action="index.php">
 <table><tr><td>
-账号（将被设置成为管理员）：<br />
+账号（将被设置成为管理员）<br />
 <input type="text" name="user" value=""/>
 </td></tr>
 <tr><td>
-密码：<br />
+密码<br />
 <input type="text" name="pass" value=""/>
 </td></tr>
 <tr>
   <td>
-E-mail：<br />
+E-mail<br />
 <input type="text" name="email" value=""/>
 </td></tr>
 <tr><td>

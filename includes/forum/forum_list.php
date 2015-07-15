@@ -13,7 +13,7 @@
 	<input type="text" name="search" value="" style="width: 40%;" />
 	<input type="submit" name="submit" value="Search" />
 	</form>
-	<table class="highlightable" width="100%"><tr><th width="60%">Title</th><th width="10%">发表者</th><th width="10%">最后更新</th><th width="5%">回复数</th>';
+	<table class="highlightable" width="100%"><tr><th width="60%">标题</th><th width="10%">发表者</th><th width="10%">最后更新</th><th width="5%">回复数</th>';
 	if(isset($_GET['pid']) && $_GET['pid'] != "" && is_numeric($_GET['pid']) && $_GET['pid'] >= 0)
 		$page = $db->real_escape_string($_GET['pid']);
 	else
@@ -49,7 +49,7 @@
 		$query = "SELECT id, topic, last_updated, author, locked, priority FROM $forum_topic_table  ORDER BY priority DESC, last_updated DESC LIMIT $page, $limit";
 	$result = $db->query($query) or die($db->error());
 	if($user->gotpermission('delete_forum_topics') || $user->gotpermission('pin_forum_topics'))
-		print '<th width="10%">Tools</th>';
+		print '<th width="10%">工具</th>';
 	echo '</tr>';
 	while($row = $result->fetch_assoc())
 	{
@@ -88,10 +88,10 @@
 ?>	
 </div></div><form method="post" action="index.php?page=forum&amp;s=add" id="new_topic" style="display:none">
 <table><tr><td>
-主题：<br/>	
+主题<br/>	
 <input type="text" name="topic" value=""/>
 </td></tr><tr><td>
-内容：<br />
+内容<br />
 <textarea name="post" rows="4" cols="6" style="width: 600px; height: 200px;"></textarea>
 </td></tr><tr><td>
 <input type="hidden" name="conf" id='conf' value="0"/>

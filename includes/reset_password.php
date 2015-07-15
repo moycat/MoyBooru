@@ -47,7 +47,7 @@
 			$_SESSION['tmp_id'] = $id;
 			echo '<form method="post" action="index.php?page=reset_password">
 			<table><tr><td>
-			输入你的新密码：
+			输入你的新密码
 			<input type="password" name="new_password" value="" />
 			</td></tr>
 			<tr><td>

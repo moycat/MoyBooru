@@ -46,19 +46,19 @@
 ?>
 <form method="post" action="index.php?page=reg">
 <table><tr><td>
-用户名：<br />
+用户名<br />
 <input type="text" name="user" value="" />
 </td></tr>
 <tr><td>
-密码：<br />
+密码<br />
 <input type="password" name="pass" value="" />
 </td></tr>
 <tr><td>
-确认密码：<br />
+确认密码<br />
 <input type="password" name="conf_pass" value="" />
 </td></tr>
 <tr><td>
-E-mail（非必需，找回密码需要）：<br />
+E-mail（非必需，找回密码需要）<br />
 <input type="text" name="email" value="" />
 </td></tr>
 <tr><td>

@@ -22,11 +22,11 @@
 		require "includes/header.php";
 		echo '<form method="post" action="">
 		<table><tr><td>
-		用户名：<br />
+		用户名<br />
 		<input type="text" name="user" value="" />
 		</td></tr>
 		<tr><td>
-		密码：<br />
+		密码<br />
 		<input type="password" name="pass" value="" />
 		</td></tr>
 		<tr><td>

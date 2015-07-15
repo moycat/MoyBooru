@@ -185,33 +185,33 @@
 ?>
 	<form method="post" target="" enctype="multipart/form-data">
 	<table><tr><td>
-	文件：<br />
+	文件<br />
 	<input type="file" name="upload" />
 	<td></tr>
 	<tr><td>
-	来源：<br />
+	来源<br />
 	<input type="text" name="source" value="" />
 	</td></tr>
 	<tr><td>
-	标题：<br />
+	标题<br />
 	<input type="text" name="title" value="" />
 	</td></tr>
 	<tr><td>
 	标签<br />
 	<input type="text" id="tags" name="tags" value="" /><br />
-	&nbsp;&nbsp;&nbsp;&nbsp;以空格分隔（例如：萨摩耶 猹）
+	<em>以空格分隔（例如：萨摩耶 猹）</em>
 	</td></tr>
 	<tr><td>
-	Rating:<br />
+	分级<br />
 	<input type="radio" name="rating" value="e" />敏感的
 	<input type="radio" name="rating" value="q" checked="true" />存疑的
 	<input type="radio" name="rating" value="s" />安全的
 	<tr><td>
-	我的标签：<br />
+	我的标签<br />
 	<?php if(isset($_COOKIE['tags']) && $_COOKIE['tags'] != ""){$tags = explode(" ",str_replace('%20',' ',$_COOKIE['tags'])); foreach($tags as $current){echo "<a href=\"index.php?page=post&s=list&tags=".$current."\" id=\"t_".$current.'" onclick="toggleTags(\''.$current.'\',\'tags\',\'t_'.$current.'\'); return false;">'.$current.' </a>';}}else{echo '<a href="index.php?page=account-options">编辑</a>';} ?>
 	<td></tr>
 	<tr><td>
-	<input type="submit" name="submit" value="Upload" />
+	<input type="submit" name="submit" value="上传" />
 	</td></tr>
 	</table>
 	</form>
