@@ -1,37 +1,37 @@
 # MoyBooru
-An PHP imageboard based on Gelbooru 0.1.11.
+一个PHP的画板程序，基于Gelbooru 0.1.11。
 
-Share, Rate, and Enjoy.
+分享，评价，享受。
 
-# FUNCTION
-1. [TODO]To share pictures and videos freely.
+(It won't support English in the near future.)
 
-2. To comment and rate the posts.
+# 功能
+1. [TODO]自由地分享图片与视频。
 
-3. A simple forum built in.
+2. 对他人的帖子发表评论与打分。
 
-4. [TODO]A wiki built in.
+3. 内含一个简单的论坛。
 
-5. [TODO]Picture sets, pools supported.
+4. [TODO]内含一个Wiki程序。
 
-6. [TODO]Multi-language support.
+5. [TODO]支持照片集合。
 
-{to be continued...}
+6. [TODO]多语言支持。（目前仅中文化）
 
-# WHY
-Since long ago I have been wanted to set up an imagebooru.
+【有待添加】
 
-I have tried Danbooru, but I failed to set it up again and again, on no matter what flatform.
+# 缘由
+很久以前我就想要一个画板程序。（不要问为什么>//<）
 
-I have tried Gelbooru. Its vesion 0.2.x (now in use) is great but unfortunately closed source.
+试过Danbooru，无论x86还是树莓派，无论VPS还是实体机，都跪了，装不上啊。
 
-I have tried other programs but I like none of them...
+试过Gelbooru，它的0.2.x（当前版本）很不错，但是是闭源的。
 
-So I decided to modify the open source Gelbooru 0.1.11 which is not very perfect to get a good one. In my opinion it's a good templet.
+看过其他的，感觉好丑，不喜欢。
 
-# BUT...
-As a high school student in PRC, I may not have much time to work on my projects.
+所以我就决定自己弄一个了啊……Gelbooru 0.1.11是开源的，虽然比较不完善，但是感觉是一个好的模板。
 
-And my programming skills may be bad. So sad.
+# 但是……
+作为一名天朝高中生，你懂我的苦逼。没时间啊，所以更新会很慢吧……
 
-So... I can only update it once in a very while.
+而且编程技术还是挺丑的……不然也不需要模板了。
