@@ -23,14 +23,18 @@ echo '<html><head>
 
 if($user->gotpermission('is_admin'))
 {
-	echo '<h5>管理工具</h5>
+	echo '<h5>帖子工具</h5><br />
 	<ul id="tag-sidebar">
 	<li><a href="?page=mass_parent" title="批量修改一些帖子的父帖子">父帖子批量修改</a></li>
 	</ul>
-	<h5>用户组工具</h5>
+	<h5>用户组工具</h5><br />
 	<ul id="tag-sidebar">
 	<li><a href="?page=add_group" title="新增一个群组">创造新群组</a></li>
 	<li><a href="?page=edit_group" title="标记群组的权限">群组权限设置</a></li>
+	</ul>
+	<h5>高级设置</h5><br />
+	<ul id="tag-sidebar">
+	<li><a href="?page=site_config" title="修改站点的基本信息">站点基本设置</a></li>
 	</ul>';
 }
 ?>

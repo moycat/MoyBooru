@@ -18,6 +18,8 @@
 				require "ban_user.php";	
 		else if($_GET['page'] == "mass_parent")
 				require "mass_parent.php";	
+		else if($_GET['page'] == "site_config")
+				require "site_config.php";	
 	}		
 ?>
 <br></body></html>
