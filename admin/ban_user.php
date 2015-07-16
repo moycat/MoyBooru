@@ -6,7 +6,7 @@
 	$user = new user();
 	if(!$user->gotpermission('is_admin'))
 	{
-		print "No permission to access this.";
+		print "无权访问此页";
 		exit;
 	}	
 	if(isset($_GET['user_id']) && is_numeric($_GET['user_id']))
@@ -20,17 +20,17 @@
 			//Are you an idiot who decided to ban themselves? Let's hope not... ;)
 			if(mb_strtolower($row['user']) == "anonymous" || mb_strtolower($row['user']) == mb_strtolower($checked_username))
 			{
-				print "You <b>really REALLY</b> don't want to do that. Trust me.";
+				print "相信我，你<b>绝壁</b>不会想这样做的……";
 				exit;
 			}
-			print '<div class="content">Make note that banning using this tool will check the whole database for all IP addresses associated with this account. This will take a while if you have a <b>really</b> big database. Even then this will take forever. Just sit back.<br /><br />
+			print '<div class="content">注意，使用此工具封禁用户将会在整个数据库中搜寻与之相关联的IP地址。这可能会耗费一定时间，不过就算要等到天荒地老，还请坐和放宽<br /><br />
 			<form method="post" action="">
 			<table><tr><td>			
-			User:</td><td><input type="text" value="'.$row['user'].'" size="80" disabled /></td></tr>
+			用户</td><td><input type="text" value="'.$row['user'].'" size="80" disabled /></td></tr>
 			<tr><td>
-			Reason:</td><td><input type="text" name="ban_reason" value="" size="80" /></td></tr>
+			理由</td><td><input type="text" name="ban_reason" value="" size="80" /></td></tr>
 			<tr><td></td><td>
-			<input type="submit" value="Add Ban" /></td><tr></table>
+			<input type="submit" value="封禁" /></td><tr></table>
 			</form>
 			</div></body></html>
 			';
@@ -44,12 +44,12 @@
 
 		//These queries could be done with a single join, but why bother making it complicated? 
 		//Multiple simple queries shouldn't be that bad on the server... Right?
-		print "Now attempting to ban IP address in user table... <br />";
+		print "正在用户表中封禁IP……<br />";
 		flush();
 		$query = "INSERT INTO $banned_ip_table(ip,user,reason,date_added) VALUES('$ban_ip','$checked_username','$ban_reason','".time()."')";
 		$db->query($query);
 		
-		print "Now attempting to ban IP addresses in comment_vote table... <br />";
+		print "正在评论投票表中封禁IP……<br />";
 		flush();
 		$query = "SELECT * FROM $comment_vote_table WHERE user_id = '$ban_id' GROUP BY ip";
 		$result = $db->query($query);
@@ -60,7 +60,7 @@
 			$db->query($query);
 		}
 		
-		print "Now attempting to ban IP addresses in comment table... <br />";	
+		print "正在评论表中封禁IP……<br />";	
 		flush();		
 		$query = "SELECT * FROM $comment_table WHERE user = '$ban_username' GROUP BY ip";
 		$result = $db->query($query);
@@ -71,7 +71,7 @@
 			$db->query($query);
 		}	
 		
-		print "Now attempting to ban IP addresses in note table... <br />";
+		print "正在注释表中封禁IP……<br />";
 		flush();		
 		$query = "SELECT * FROM $note_table WHERE user_id = '$ban_id' GROUP BY ip";
 		$result = $db->query($query);
@@ -82,7 +82,7 @@
 			$db->query($query);
 		}
 		
-		print "Now attempting to ban IP addresses in post vote table... <br />";
+		print "正在帖子投票表中封禁IP……<br />";
 		flush();		
 		$query = "SELECT * FROM $post_vote_table WHERE user_id = '$ban_id' GROUP BY ip";
 		$result = $db->query($query);
@@ -93,7 +93,7 @@
 			$db->query($query);
 		}		
 		
-		print "Now attempting to ban IP addresses in tag history table... <br />";
+		print "正在历史记录表中封禁IP……<br />";
 		flush();		
 		$query = "SELECT * FROM $tag_history_table WHERE user_id = '$ban_id' GROUP BY ip";
 		$result = $db->query($query);
@@ -104,7 +104,7 @@
 			$db->query($query);
 		}	
 		
-		print "Now attempting to ban IP addresses in post table... <br />";		
+		print "正在帖子表中封禁IP……<br />";		
 		flush();
 		$query = "SELECT * FROM $post_table WHERE owner = '$ban_username' ORDER BY id DESC";
 		$result = $db->query($query);

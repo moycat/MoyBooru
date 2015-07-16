@@ -38,15 +38,15 @@
 				$query = "UPDATE $alias_table SET status='rejected' WHERE tag='$tag' AND alias='$alias'";
 				$db->query($query);
 			}
-			print '<meta http-equiv="refresh" content="2;url='.$site_url.'admin/?page=alias">';
+			print '<meta http-equiv="refresh" content="2;url='.$site_url.'/admin/?page=alias">';
 			exit;
 		}
 
 		echo '<form method="post" action=""><table><tr><td>
-		Accept<input type="radio" name="accept" value="1"/>
-		Reject<input type="radio" name="accept" value="2"/>
+		批准<input type="radio" name="accept" value="1"/>
+		拒绝<input type="radio" name="accept" value="2"/>
 		</td></tr><tr><td>
-		<input type="submit" name="submit" value="Submit"/>
+		<input type="submit" name="submit" value="提交"/>
 		</td></tr></table></form>';
 	}
 	else
@@ -54,12 +54,12 @@
 		$query = "SELECT tag, alias FROM $alias_table WHERE status='pending'";
 		$result = $db->query($query);
 		print '<div class="content"><table width="100%" border="0" class="highlightable">
-		<tr><th>Alias [What it should be!]</th><th>Tag [What they search for!]</th></tr>';
+		<tr><th>正确标签（它应该是）</th><th>错误标签（当前被贴上的）</th></tr>';
 		while($row = $result->fetch_assoc())
 			print '<tr><td><a href="?page=alias&amp;alias='.$row['alias'].'&amp;tag='.$row['tag'].'">'.$row['tag'].'</a></td><td><a href="?page=alias&amp;alias='.$row['alias'].'&amp;tag='.$row['tag'].'">'.$row['alias'].'</a></td>';
 
 		if($result->num_rows == 0)
-			echo "<tr><td><h1>No aliases has been requested.</h1></td></tr>";
+			echo "<h1>没有已提交的标签修正请求</h1>";
 		$result->free_result();
 	}
 	$db->close();

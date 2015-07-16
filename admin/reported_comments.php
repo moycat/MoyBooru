@@ -14,14 +14,15 @@
 			$row = $result->fetch_assoc();
 			$cache->destroy_page_cache("cache/".$row['post_id']);
 			$cache->create_page_cache("cache/".$row['post_id']);
-			echo '<center>Unflagged comment!</center>';
+			echo '<center>标记已取消</center>';
 		}
 	}
-	echo '<div class="content"><table class="highlightable" style="font-size: 12px; width: 100%;"><tr><th>Remove?</th><th>Post ID:</th><th>Comment:</th><th>分数：</th><th>Date Posted:</th><th>Unflag:</th></tr>';
+	echo '<div class="content"><table class="highlightable" style="width: 100%;"><tr><th>删除？</th><th>帖子号</th><th>评论</th><th>分数</th><th>发表日期</th><th>取消标记</th></tr>';
 	//number of reports/page
 	$limit = 50;
 	//number of pages to display. number - 1. ex: for 5 value should be 4
 	$page_limit = 4;
+	$lowerlimit = 0;
 	
 	if(isset($_GET['pid']) && $_GET['pid'] != "" && is_numeric($_GET['pid']) && $_GET['pid'] >= 0)
 		$page = $db->real_escape_string($_GET['pid']);
@@ -32,7 +33,7 @@
 	$row = $result->fetch_assoc();
 	$numrows = $row['COUNT(*)'];
 	if($numrows == 0)
-		print "<h1>No reports found.</h1>";
+		print "<h1>没有相关报告</h1>";
 	else
 	{
 		$pages = intval($numrows/$limit);
@@ -60,7 +61,7 @@
 			else
 				$user = '<span style="color: #007700;">'.$user.'</span>';
 
-			echo '<tr><td><a href="../public/remove.php?id='.$row['id'].'&amp;removecomment=1&amp;post_id='.$row['post_id'].'">Remove</a></td><td><a href="../index.php?page=post&s=view&id='.$row['post_id'].'">'.$row['post_id'].'</a> '.$row['reason'].'</td><td style="width: 600px; padding: 5px 0px 5px 0px;">'.htmlentities($row['comment']).' - <span style="color: #770000; font-size: 11px;">'.$row['ip'].'</span> '.$user.'</td><td><center>'.$row['score'].'</center></td><td>'.$date.'</td><td><a href="'.$site_url.'/admin/?page=reported_comments&unreport='.$row['id'].'">Unflag</a></td></tr><tr><td><br></td></tr>';
+			echo '<tr><td><a href="../public/remove.php?id='.$row['id'].'&amp;removecomment=1&amp;post_id='.$row['post_id'].'">删除</a></td><td><a href="../index.php?page=post&s=view&id='.$row['post_id'].'">'.$row['post_id'].'</a> '.'</td><td style="width: 600px; padding: 5px 0px 5px 0px;">'.htmlentities($row['comment']).' - <span style="color: #770000; font-size: 11px;">'.$row['ip'].'</span> '.$user.'</td><td><center>'.$row['score'].'</center></td><td>'.$date.'</td><td><a href="'.$site_url.'/admin/?page=reported_comments&unreport='.$row['id'].'">取消标记</a></td></tr><tr><td><br></td></tr>';
 		}
 		$result->free_result();
 		echo '</table><br /><br /><div id="paginator">';
@@ -80,7 +81,7 @@
 		{ 
 			// Don't show back link if current page is first page.
 			$back_page = $page - $limit;
-			echo '<a href="?pid=0&page=reported_comments" alt="first page"><<</a> <a class="news" href="?pid='.$back_page.'&page=reported_comments" alt="back"><</a>';
+			echo '<a href="?pid=0&page=reported_comments" alt="第一页"><<</a> <a class="news" href="?pid='.$back_page.'&page=reported_comments" alt="上一页"><</a>';
 		}
 		for($i=$start; $i <= $tmp_limit; $i++) // loop through each page and give link to it.
 		{
@@ -97,7 +98,7 @@
 		{ 
 			// If last page don't give next link.
 			$next_page = $page + $limit;
-			echo '<a href="?pid='.$next_page.'&page=reported_comments" alt="next">></a> <a href="?pid='.$lastpage.'&page=reported_comments" alt="last page">>></a></font></center>';
+			echo '<a href="?pid='.$next_page.'&page=reported_comments" alt="下一页">></a> <a href="?pid='.$lastpage.'&page=reported_comments" alt="最后一页">>></a></font></center>';
 		}
 	}
 ?>

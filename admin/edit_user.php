@@ -18,9 +18,9 @@
 			$query = "UPDATE $user_table SET ugroup='$group' WHERE user='$user'";
 
 		if($db->query($query))
-			print 'User edited.<meta http-equiv="refresh" content="2;url=edit_user.php">';
+			print '编辑用户成功<meta http-equiv="refresh" content="2;url=edit_user.php">';
 		else
-			print 'Could not edit user.<meta http-equiv="refresh" content="2;url=edit_user.php">';
+			print '编辑用户失败<meta http-equiv="refresh" content="2;url=edit_user.php">';
 			
 		exit;
 	}
@@ -34,7 +34,7 @@
 		New password?<br />
 		<input type="text" name="password" value=""/>
 		</td></tr>
-		<tr><td>Group:<br /><select name="group">';
+		<tr><td>群组<br /><select name="group">';
 		$cgroup = false;
 		$query = "SELECT t1.ugroup, t2.id, t2.group_name FROM $user_table AS t1 JOIN $group_table AS t2 WHERE t1.user='$user'";
 		$result = $db->query($query);
@@ -42,7 +42,7 @@
 		{
 			if($cgroup == false)
 			{
-				echo '<option value="'.$row['ugroup'].'">No change</option>';
+				echo '<option value="'.$row['ugroup'].'">没有更改</option>';
 				$cgroup = true;
 			}
 			echo '<option value="'.$row['id'].'">'.$row['group_name'].'</option>';
@@ -51,17 +51,17 @@
 		<input type="hidden" name="uid" value="'.$user.'"/>
 		</td></tr>
 		<tr><td>
-		<input type="submit" name="submit" value="save"/>
+		<input type="submit" name="submit" value="保存"/>
 		</td></tr></table></form>';
 	}
 	else
 	{
 		echo '<form method="post" action=""><table><tr><td>
-		User:<br />
+		用户<br />
 		<input type="text" name="user" value=""/>
 		</td></tr>
 		<tr><td>
-		<input type="submit" name="submit" value="edit"/>
+		<input type="submit" name="submit" value="编辑"/>
 		</td></tr></table></form>';
 	}
 ?>

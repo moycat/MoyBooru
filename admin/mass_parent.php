@@ -1,6 +1,5 @@
 <?php
 	//Made to mass add parent to each post. Is this good enough?
-	require "../inv.header.php";
 	$user = new user();
 	if(!$user->gotpermission('is_admin'))
 	{
@@ -10,17 +9,17 @@
 
 	if(!isset($_POST['start']) && !isset($_POST['end']) && !isset($_POST['parent']))
 	{
-		print 'enter id\'s range to change!<br><Br>
+		print '输入ID范围来批量修改<br><Br>
 		<form method="post" action="mass_parent.php">
-		Makes the below a parent of this id:<br>
+		将这些帖子的父帖子设置为<br>
 		<input type="text" name="parent">
 		<Br><br>
 		
-		Starting #:<br>
+		开始 #:<br>
 		<input type="text" name="start">
 		<br><br>
 		
-		Ending #:<br>
+		结束 #:<br>
 		<input type="text" name="end">
 		<br><br>
 		

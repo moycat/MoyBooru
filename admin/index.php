@@ -13,7 +13,9 @@
 	else if($_GET['page'] == "edit_group")
 			require "edit_group_permission.php";
 	else if($_GET['page'] == "ban_user")
-			require "ban_user.php";					
+			require "ban_user.php";	
+	else if($_GET['page'] == "mass_parent")
+			require "mass_parent.php";							
 
 ?>
 <br></body></html>

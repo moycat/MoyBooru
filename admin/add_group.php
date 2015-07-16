@@ -15,7 +15,7 @@
 		$result = $db->query($query);
 		$row = $result->fetch_assoc();
 		if($row['COUNT(*)'] > 0)
-			print "Group already exists.";
+			print "群组已存在";
 		else
 		{
 			if(isset($_POST['default']) && $_POST['default'] == true)
@@ -29,21 +29,21 @@
 				$query = "INSERT INTO $group_table(group_name, default_group) VALUES('$name', FALSE)";
 			}
 			if($db->query($query))
-				print "Group added.";
+				print "群组添加成功";
 			else
-				print "Could not add group.";
+				print "群组添加失败";
 		}
 	}
 ?><div class="content">
 <form method="post" action="">
-<table><tr><td>Group name:<br />
+<table><tr><td>群组名<br />
 <input type="text" name="gname"/>
 </td></tr>
 <tr><td>
-<input type="submit" name="submit" value="Create group"/>
+<input type="submit" name="submit" value="创造群组"/>
 </td></tr>
 <tr><td>
-Is this group the default group? (a default group must exist)<br />
+设为默认组？（必须存在一个默认组）<br />
 <input type="checkbox" name="default" />
 </td></tr></table>
 </form>
