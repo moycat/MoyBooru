@@ -454,7 +454,7 @@ div.quote {
   padding: 12px;
   text-align: justify;
   font-style: italic;
-  background: #f6f6f6 url('/counter/quote.gif') no-repeat top right;
+  background: #f6f6f6 url('/images/counter/quote.gif') no-repeat top right;
   font-size: 12px;
   font-family: sans-serif, arial, tahoma;
   border: 1px solid #bababa;
