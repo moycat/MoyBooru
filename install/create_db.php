@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	require "../config.php";
 	require "../functions.global.php";
 	$db = new mysqli($mysql_host,$mysql_user,$mysql_pass,$mysql_db) or die("Ooops?");

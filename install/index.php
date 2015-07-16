@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	if(isset($_POST['settings']))
 	{
 		require "create_db.php";
