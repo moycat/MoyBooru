@@ -36,7 +36,7 @@
 	for ($i=0;$i<strlen($row['pcount']);$i++) 
 	{
 		$digit=substr($row['pcount'],$i,1);
-		print '<img src="./counter/'.$digit.'.gif" border="0" alt="'.$digit.'"/>'; 						
+		print '<img src="./images/counter/'.$digit.'.gif" border="0" alt="'.$digit.'"/>'; 						
 	}
 	echo '<br /><br /><small>总计访客数：'.number_format($row['count']).'</small>
 	<br /><br /></div></div><br /><br /><br /><br />
