@@ -188,7 +188,7 @@ var posts = {}; var pignored = {};
 
 			//Pagination function. This should work for the whole site... Maybe.
 			$misc = new misc();
-			print $misc->pagination($_GET['page'],$_GET['s'],$id,$limit,$page_limit,$numrows,$_GET['pid'],$_GET['tags']);
+			print $misc->pagination($_GET['page'],$_GET['s'],isset($id) ? $id : '',$limit,$page_limit,$numrows,isset($_GET['pid']) ? $_GET['pid'] : '',isset($_GET['tags']) ? $_GET['tags'] : '');
 			
 		}
 		//Cache doesn't exist for search, make one.
