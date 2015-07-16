@@ -12,17 +12,17 @@
 		$result = $db->query($query);
 		$row = $result->fetch_assoc();
 		if($row['COUNT(*)'] > 0)
-			echo "<b>标签-别名组合已经提交</b><br /><br />";
+			echo "<b>标签修正请求已经提交</b><br /><br />";
 		else
 		{
 			$query = "INSERT INTO $alias_table(tag, alias, status) VALUES('$tag', '$alias', 'pending')";
 			$db->query($query);
-			echo "<b>标签-别名组合已经提交</b><br /><br />";
+			echo "<b>标签修正请求已经提交</b><br /><br />";
 		}
 	}
 
-	echo '你可以申请建立一个标签-别名组合，但在其可用前需要先通过管理员的批准<br />
-	<div style="color: #ff0000;">例子：美国可以是美利坚合众国的别名</div><br /><br />
+	echo '你可以申请修正一个标签，但需要通过管理员的批准<br />
+	<div style="color: #ff0000;">例子：如果申请将“乙太”修正为“以太”，那么所有带“乙太”标签的帖子都将贴上“以太”标签而取消原来的“乙太”标签。</div><br /><br />
 	';
 
 	if(isset($_GET['pid']) && $_GET['pid'] != "" && is_numeric($_GET['pid']) && $_GET['pid'] >= 0)
@@ -38,7 +38,7 @@
 	$query = "SELECT * FROM $alias_table WHERE status != 'rejected' ORDER BY alias ASC LIMIT $page, $limit";
 	$result = $db->query($query) or die($db->error);
 	$ccount = 0;
-	print '<table class="highlightable" style="width: 100%;"><tr><th width="25%"><b>标签：<small>（你在搜索框中输入的）</small></b></th><th width="25%"><b>别名：</b><small>（它应该是）</small></th><th>理由：</th></tr>';
+	print '<table class="highlightable" style="width: 100%;"><tr><th width="25%"><b>错误标签<small>（当前被贴上的）</small></b></th><th width="25%"><b>正确标签</b><small>（它应该是）</small></th><th>理由</th></tr>';
 	while($row = $result->fetch_assoc())
 	{
 		if($row['status']=="pending")
@@ -49,8 +49,8 @@
 	}
 	echo '</table><br /><br />
 	<form method="post" action=""><table><tr><td>
-	<b>别名</b></td><td><input type="text" name="alias" value=""/></td></tr>
-	<tr><td><b>别名至</b></td><td><input type="text" name="tag" value=""/></td></tr>
+	<b>标签</b></td><td><input type="text" name="alias" value=""/></td></tr>
+	<tr><td><b>修正为</b></td><td><input type="text" name="tag" value=""/></td></tr>
 	</table>
 	<input type="submit" name="submit" value="提交"/>
 	</form>

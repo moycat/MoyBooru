@@ -8,7 +8,7 @@
 	</head>
 	<body>
 	<div id="static-index">
-		<h1 style="font-size: 52px; margin-top: 1em;"><a href="'.$site_url.'">'.$site_url3.'</a></h1>
+		<h1 style="font-size: 52px; margin-top: 1em;"><a href="'.$site_url.'/">'.$site_url3.'</a></h1>
 	';
 ?>
 	<div class="space" id="links">

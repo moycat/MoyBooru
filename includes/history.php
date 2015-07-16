@@ -68,7 +68,7 @@
 			$result = $db->query($query) or die($db->error);
 			$count = $result->num_rows;
 			print '<table width="100%" class="highlightable" id="history">
-			<tr><th width="1%"></th><th width="4%">Post</th><th width="5%">日期</th><th width="10%">User</th><th width="60%">标签</th><th width="10%">选项</th></tr>';			
+			<tr><th width="1%"></th><th width="4%">帖子</th><th width="5%">日期</th><th width="10%">用户</th><th width="60%">标签</th><th width="10%">选项</th></tr>';			
 			while($row = $result->fetch_assoc())
 			{
 				$ret = "SELECT user FROM $user_table WHERE id='".$row['user_id']."'";

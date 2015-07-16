@@ -209,7 +209,7 @@
 		}
 		$ttags = explode(" ",$tags);
 		$images .= '</div><div class="col3"><ul class="post-info">';
-		$images .= "<li>$pat</li><li>分级：$rating</li><li>user:".htmlentities($user, ENT_QUOTES, 'UTF-8')."</li>";
+		$images .= "<li>$pat</li><li>分级：$rating</li><li>用户：".htmlentities($user, ENT_QUOTES, 'UTF-8')."</li>";
 		$ttcount = 0;
 		foreach($ttags as $current)
 		{

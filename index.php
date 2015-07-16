@@ -35,7 +35,7 @@
 			require "includes/forum.php";	
 		else 
 		{
-			header("Location:".$site_url."/");
+			header("Location:".$site_url.'/');
 			exit;
 		}
 	}

@@ -27,7 +27,7 @@
 			{
 				$uploaded_image = false;
 				//Extension looks good, toss it through the image processing section.
-				$dl_url = $site_url.$path.rawurlencode($current_folder)."/".rawurlencode($file);
+				$dl_url = $site_url.'/'.$path.rawurlencode($current_folder)."/".rawurlencode($file);
 				$iinfo = $image->getremoteimage($dl_url);
 				if($iinfo === false)
 					$error = $image->geterror()."<br />不能添加这个图片";
@@ -46,9 +46,9 @@
 					$ttags = explode(" ",$tags);
 					$tag_count = count($ttags);		
 					if($tag_count == 0)
-						$ttags[] = "【待标注】";
-					if($tag_count < 5 && strpos($ttags,"【待标注】") === false)
-						$ttags[] = "【待标注】";
+						$ttags[] = "tagme";
+					if($tag_count < 5 && strpos($ttags,"tagme") === false)
+						$ttags[] = "tagme";
 					foreach($ttags as $current)
 					{
 						if(strpos($current,'parent:') !== false)

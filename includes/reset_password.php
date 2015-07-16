@@ -83,7 +83,7 @@
 	{	
 		echo'<form method="post" action="index.php?page=reset_password">
 		<table><tr><td>
-		Username: 
+		用户名 
 		<input type="text" name="username" value="" />
 		</td></tr>
 		<tr><td>
