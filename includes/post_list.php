@@ -33,6 +33,9 @@ var posts = {}; var pignored = {};
 		$page = $db->real_escape_string($_GET['pid']);
 	else
 		$page = 0;
+	if(!isset($new_tag_cache))
+		$new_tag_cache = "";
+	$no_cache = true;
 	$search = new search();
 	//No tags  have been searched for so let's check the last_update value to update our main page post count for parent posts. Updated once a day.
 	if(!isset($_GET['tags']) || isset($_GET['tags']) && $_GET['tags'] == "all" || isset($_GET['tags']) && $_GET['tags'] == "")

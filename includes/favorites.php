@@ -66,6 +66,7 @@
 		$limit = 50;
 		//number of pages to display. number - 1. ex: for 5 value should be 4
 		$page_limit = 6;
+		$eh = "";
 		header("Cache-Control: store, cache");
 		header("Pragma: cache");
 		require "includes/header.php";
@@ -85,7 +86,7 @@
 		$query = "SELECT t2.user, t1.user_id, t1.fcount FROM $favorites_count_table AS t1 JOIN $user_table AS t2 ON t2.id=t1.user_id ORDER BY t2.user ASC LIMIT $page, $limit";
 		$result = $db->query($query);
 		while($row = $result->fetch_assoc())
-			echo '<tr class="'.$rowswitch.'"><td><a href="index.php?page=favorites&amp;s=view&amp;id='.$row['user_id'].'">'.$row['user'].'</a></td><td>'.$row['fcount'].'</td></tr>';
+			echo '<tr><td><a href="index.php?page=favorites&amp;s=view&amp;id='.$row['user_id'].'">'.$row['user'].'</a></td><td>'.$row['fcount'].'</td></tr>';
 		$result->free_result();
 		echo "</table></div><div id='paginator'>";
 		$misc = new misc();
