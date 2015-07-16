@@ -98,6 +98,6 @@
 	$anon_can_upload = false;
 	//发表后重新编辑限时（分钟）
 	$edit_limit = 20;
-	//缓存目录 所有的缓存文件都将储存在其子目录中，请将其设置在RAM或快速Raid磁盘上。默认未开启。
-	$main_cache_dir = "NUL:\\";
+	//缓存目录 所有的缓存文件都将储存在其子目录中，建议将其设置在RAM或快速Raid磁盘上。
+	$main_cache_dir = "tmp";
 ?>

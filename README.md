@@ -6,28 +6,28 @@
 (It won't support English in the near future.)
 
 # 功能
-1. [TODO]自由地分享图片与视频。
+1、[TODO]自由地分享图片与视频。
 
-2. 对他人的帖子发表评论与打分。
+2、对他人的帖子发表评论与打分。
 
-3. 内含一个简单的论坛。
+3、内含一个简单的论坛。
 
-4. [TODO]内含一个Wiki程序。
+4、[TODO]内含一个Wiki程序。
 
-5. [TODO]支持照片集合。
+5、[TODO]支持照片集合。
 
-6. [TODO]多语言支持。（目前仅中文化）
+6、[TODO]多语言支持。（目前仅中文化）
 
 【有待添加】
 
 # 安装
-1. 在config.php中设置好MySQL数据库信息。将所有文件放至网站根目录。
+1、在config.php中设置好MySQL数据库信息。将所有文件放至网站根目录。
 
-2. 将以下目录设置为可写：
+2、将以下目录设置为可写：
 
-images, tmp, thumbnails
+images, tmp, thumbnails, cache
 
-3. 确保PHP配置正确，以下以Windows环境为例，Linux请确认对应设置或模块正确配置。
+3、确保PHP配置正确，以下以Windows环境为例，Linux请确认对应设置或模块正确配置。
 
  - extension=php_mbstring.dll
  
@@ -39,13 +39,13 @@ images, tmp, thumbnails
  
  - gd.jpeg_ignore_warning = 1
 
-4. 浏览器访问/install/目录，输入管理员信息安装站点。安装后删除install目录。
+4、浏览器访问/install/目录，输入管理员信息安装站点。安装后删除install目录。
 
-5. booru.xml应当被重命名为站点名称，并请编辑其中内容以适合你的站点。同时需要编辑Header.php中的内容（includes目录下）。
+5、booru.xml应当被重命名为站点名称，并请编辑其中内容以适合你的站点。同时需要编辑Header.php中的内容（includes目录下）。
 
-6. 后台管理地址/admin/。根目录的config.php中有更多设置。
+6、后台管理地址/admin/。根目录的config.php中有更多设置。
 
-7. 如果无法正常检索3个字符以下的标签，请在MySQL的配置文件（Windows中为my.ini，Linux中为my.cnf）的[mysqld]字段中加入以下内容以修改全文索引限制：
+7、如果无法正常搜索3个字符以下的标签，请在MySQL的配置文件（Windows中为my.ini，Linux中为my.cnf）的[mysqld]字段中加入以下内容以修改全文索引限制：
 
 	 - ft_min_word_len = 1
 	 
