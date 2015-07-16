@@ -31,7 +31,7 @@
 			<li><a href="'.$site_url.'/index.php?page=account">我的账户</a></li>
 			<li><a href="'.$site_url.'/index.php?page=post&amp;s=list&amp;tags=all">帖子</a></li>
 			<li><a href="'.$site_url.'/index.php?page=comment&amp;s=list">评论</a></li>
-			<li><a href="'.$site_url.'/index.php?page=alias&amp;s=list">别名</a></li>
+			<li><a href="'.$site_url.'/index.php?page=alias&amp;s=list">标签修正</a></li>
 			<li><a href="'.$site_url.'/index.php?page=forum&amp;s=list">论坛</a></li>
 			<li><a href="'.$site_url.'/index.php?page=post&amp;s=random">随机</a></li>
 			<li><a href="'.$site_url.'/help/index.php">帮助</a></li>

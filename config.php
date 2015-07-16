@@ -53,7 +53,7 @@
 	$hit_counter_table = "hit_counter";
 	//收藏计数表
 	$favorites_count_table = "favorites_count";
-	//别名表
+	//标签修正表
 	$alias_table = "alias";
 	//主从帖子关系表
 	$parent_child_table = "parent_child";

@@ -30,7 +30,7 @@
 			}
 			$result->free_result();
 			if($count <= 0)
-				echo '<h1>没有这个注释的历史记录。</h1>';
+				echo '<h1>没有这个注释的历史记录</h1>';
 		}
 		else if($type == "page_notes")
 		{
@@ -57,7 +57,7 @@
 			print "</table>";
 			$result->free_result();
 			if($count <= 0)
-				echo '<h1>没有这篇帖子的历史记录。</h1>';
+				echo '<h1>没有这篇帖子的历史记录</h1>';
 		}
 		else if($type == "tag_history")
 		{
@@ -83,7 +83,7 @@
 			print "</table>";
 			$result->free_result();
 			if($count <= 0)
-				echo '<h1>没有这篇帖子的标签的历史记录。</h1>';
+				echo '<h1>没有这篇帖子的标签的历史记录</h1>';
 		}
 		else if($type == "revert")
 		{

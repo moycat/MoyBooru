@@ -38,7 +38,7 @@
 		else
 		{
 			require "includes/header.php";
-			print "密码不匹配。<br />";
+			print "密码不匹配<br />";
 		}
 	}
 	else

@@ -174,7 +174,7 @@
 				$db->query($query);
 				$query = "UPDATE $user_table SET post_count = post_count+1 WHERE id='$checked_user_id'";
 				$db->query($query);
-				print "图片已添加";
+				print "图片添加成功";
 			}
 		}
 	}

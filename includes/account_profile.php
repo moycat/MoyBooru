@@ -45,7 +45,7 @@
 		  <td width="80%"><?php if(!is_null($row['signup_date']) && $row['signup_date']!=""){ print mb_substr($row['signup_date'],0,strlen($row['signup_date'])-9,'UTF-8');} else { echo "N/A";} ?></td>
 		</tr>
 		<tr>
-		  <td><strong>分组</strong></td>
+		  <td><strong>群组</strong></td>
 		  <td>
 		   <?php print ucfirst(mb_strtolower($row['group_name'],'UTF-8')); ?>
 		  </td>

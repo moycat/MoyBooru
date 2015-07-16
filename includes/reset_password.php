@@ -27,13 +27,13 @@
 				$misc->send_mail($row['email'],$email_recovery_subject,$body);
 				$query = "UPDATE $user_table SET mail_reset_code='$code' WHERE id='".$row['id']."'";				
 				$db->query($query);				
-				print "一封带有重置密码链接的邮件已经发至你的邮箱。<br />";
+				print "一封带有重置密码链接的邮件已经发至你的邮箱<br />";
 			}
 			else
-				print "你的账户没有设置邮箱。<br />";
+				print "你的账户没有设置邮箱<br />";
 		}
 		else
-			print "你的账户没有设置邮箱。<br />";
+			print "你的账户没有设置邮箱<br />";
 	}
 	if(isset($_GET['code']) && $_GET['code'] != "" && isset($_GET['id']) && $_GET['id'] != "" && is_numeric($_GET['id']))
 	{
@@ -58,7 +58,7 @@
 		}
 		else
 		{
-			print "无效的密码重置链接。<br />";
+			print "无效的密码重置链接<br />";
 		}
 	}
 	if(isset($_POST['new_password']) && $_POST['new_password'] != "" && isset($_SESSION['tmp_id']) && $_SESSION['tmp_id'] != "" && is_numeric($_SESSION['tmp_id']) && isset($_SESSION['reset_code']) && $_SESSION['reset_code'] != "")
@@ -76,7 +76,7 @@
 			$db->query($query);
 			unset($_SESSION['tmp_id']);
 			unset($_SESSION['reset_code']);
-			print "你的密码已修改。<br />";
+			print "你的密码已修改<br />";
 		}	
 	}
 	if(!isset($_GET['code']) && $_GET['code'] == "")

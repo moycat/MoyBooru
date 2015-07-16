@@ -174,32 +174,32 @@
 		{
 			$hour_now = date('g:i:s A',$date_now);
 			if($date_now+60*60*24 >= time())
-				$date_now = "Today"; 
+				$date_now = "今天"; 
 			else if($date_now+60*60*48 >= time()) 
-				$date_now = "Yesterday"; 
+				$date_now = "昨天"; 
 			else if(((int)((time()-$date_now)/(24*60*60)))<=7)
 			{
 				$a = time()-$date_now; 
 				$a = (int)($a/(24*60*60));
-				$date_now = $a." days ago"; 
+				$date_now = $a." 天前"; 
 			}
 			else if(((int)((time()-$date_now)/(24*60*60)))<=31)
 			{
 				$a = time()-$date_now; 
 				$a = (int)($a/(24*60*60*7));
-				$date_now = $a." weeks ago";
+				$date_now = $a." 周前";
 			}
 			else if(((int)((time()-$date_now)/(24*60*60)))<=365)
 			{
 				$a = time()-$date_now; 
 				$a = (int)($a/(24*60*60*31));
-				$date_now = $a." months ago";
+				$date_now = $a." 月前";
 			}
 			else
 			{
 				$a = time()-$date_now;
 				$a = ((int)($a/(24*60*60*365)));
-				$date_now = $a." years ago";
+				$date_now = $a." 年前";
 			}
 			$date_now = '<span title="'.$hour_now.'">'.$date_now.'</span>';
 			return $date_now;
@@ -244,6 +244,7 @@
 			$tmp_limit = $start + $page_limit;
 			if($tmp_limit > $pages)
 				$tmp_limit = $pages;
+			$lowerlimit = 0;
 			if($pages > $page_limit)
 				$lowerlimit = $pages - $page_limit;
 			if($start > $lowerlimit)
@@ -252,7 +253,7 @@
 			if($page != 0 && !((($page+$limit) / $limit) > $pages)) 
 			{ 
 				$back_page = $page - $limit;
-				$output .=  '<a href="?page='.$page_type.''.$sub.''.$query.''.$has_id.''.$has_tags.'&amp;pid=0" alt="first page">&lt;&lt;</a><a href="?page='.$page_type.''.$sub.''.$query.''.$has_id.''.$has_tags.'&amp;pid='.$back_page.'" alt="back">&lt;</a>';
+				$output .=  '<a href="?page='.$page_type.''.$sub.''.$query.''.$has_id.''.$has_tags.'&amp;pid=0" alt="第一页">&lt;&lt;</a><a href="?page='.$page_type.''.$sub.''.$query.''.$has_id.''.$has_tags.'&amp;pid='.$back_page.'" alt="上一页">&lt;</a>';
 			}
 			for($i=$start; $i <= $tmp_limit; $i++)
 			{
@@ -269,7 +270,7 @@
 			{ 
 				// If last page don't give next link.
 				$next_page = $page + $limit;
-				$output .= '<a href="?page='.$page_type.''.$sub.''.$query.''.$has_id.''.$has_tags.'&amp;pid='.$next_page.'" alt="next">&gt;</a><a href="?page='.$page_type.''.$sub.''.$query.''.$has_id.''.$has_tags.'&amp;pid='.$lastpage.'" alt="last page">&gt;&gt;</a>';
+				$output .= '<a href="?page='.$page_type.''.$sub.''.$query.''.$has_id.''.$has_tags.'&amp;pid='.$next_page.'" alt="下一页">&gt;</a><a href="?page='.$page_type.''.$sub.''.$query.''.$has_id.''.$has_tags.'&amp;pid='.$lastpage.'" alt="最后一页">&gt;&gt;</a>';
 			}
 			return $output;
 		}

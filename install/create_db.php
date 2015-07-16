@@ -123,8 +123,8 @@ $result = $db->query($query);
 if($result->num_rows == "0")
 {
 $query = "INSERT INTO `$group_table` (`id`, `group_name`, `delete_posts`, `delete_comments`, `admin_panel`, `reverse_notes`, `reverse_tags`, `default_group`, `is_admin`, `delete_forum_posts`, `delete_forum_topics`, `lock_forum_topics`, `edit_forum_posts`, `pin_forum_topics`, `alter_notes`, `can_upload` ) VALUES 
-(1, 'Administrator', 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1),
-(2, 'Regular Member', 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1)
+(1, '管理员', 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1),
+(2, '普通用户', 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1)
 ";
 $db->query($query);
 }

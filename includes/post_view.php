@@ -43,7 +43,7 @@
 		require "includes/header.php";	
 		echo '<div id="content"><div id="post-view">';
 		if($post->has_children($id))
-			echo '<div style="background: #f0f0f0; padding: 10px; text-align: center; border: 3px solid #dadada;">这篇帖子有<a href="index.php?page=post&s=list&tags=parent:'.$id.'"><b>子帖子</b></a>。子帖子通常与父帖子有关联。</div><br><br>';
+			echo '<div style="background: #f0f0f0; padding: 10px; text-align: center; border: 3px solid #dadada;">这篇帖子有<a href="index.php?page=post&s=list&tags=parent:'.$id.'"><b>子帖子</b></a>。子帖子通常与父帖子有关联</div><br><br>';
 
 		echo '<div class="sidebar"><div class="space">
 		<h5>搜索</h5>
