@@ -22,7 +22,6 @@
 	$limit = 50;
 	//number of pages to display. number - 1. ex: for 5 value should be 4
 	$page_limit = 4;
-	$lowerlimit = 0;
 	
 	if(isset($_GET['pid']) && $_GET['pid'] != "" && is_numeric($_GET['pid']) && $_GET['pid'] >= 0)
 		$page = $db->real_escape_string($_GET['pid']);

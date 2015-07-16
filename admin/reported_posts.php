@@ -18,7 +18,6 @@
 	$limit = 20;
 	//number of pages to display. number - 1. ex: for 5 value should be 4
 	$page_limit = 4;
-	$lowerlimit = 0;
 	print '<div class="content"><table class="highlightable" style="width: 100%;"><tr><th>帖子ID</th><th>理由</th><th>分数</th><th>发表日期</th><th>取消标记</th></tr>';
 	if(isset($_GET['pid']) && $_GET['pid'] != "" && is_numeric($_GET['pid']) && $_GET['pid'] >= 0)
 		$page = $db->real_escape_string($_GET['pid']);

@@ -81,35 +81,41 @@
 ?>
 <div id="content">
 <form action="" method="post">
-<p><em>不同的标签或用户用空格分隔</em> 你必须开启cookies和JavaScript支持才能使用过滤器。用户名称区分大小写。</p>
-
+<p><em>不同的标签或用户用空格分隔</em> 你必须开启cookies和JavaScript支持才能使用过滤器。用户名称不区分大小写。</p>
+<?php
+$ctb = isset($_COOKIE['tag_blacklist']) ? $_COOKIE['tag_blacklist'] : "";
+$cub = isset($_COOKIE['user_blacklist']) ? $_COOKIE['user_blacklist'] : "";
+$cct = isset($_COOKIE['comment_threshold']) ? $_COOKIE['comment_threshold'] : "";
+$cpt = isset($_COOKIE['post_threshold']) ? $_COOKIE['post_threshold'] : "";
+$cts = isset($_COOKIE['tags']) ? $_COOKIE['tags'] : "";
+?>
 <div class="option">
 <table cellpadding="0" cellspacing="4">
 <tr><td>
 <label class="block">标签黑名单</label><p>任何带有黑名单内标签的帖子都会被屏蔽。你也可以屏蔽指定的分级。</p>
 </td><td>
-<textarea name="tags" rows="20" cols="50"><?php $new_tag_list != "" ? print $new_tag_list : print str_replace('%20',' ', str_replace("&#039;","'",$_COOKIE['tag_blacklist'])); ?></textarea>
+<textarea name="tags" rows="20" cols="50"><?php isset($new_tag_list) ? print $new_tag_list : print str_replace('%20',' ', str_replace("&#039;","'",$ctb)); ?></textarea>
 </td></tr>
 <tr><td>
 <label class="block">用户黑名单</label><p>黑名单中任何用户发布的帖子都将被屏蔽。</p>
 </td><td>
-<input type="text" name="users" value="<?php $new_user_list != "" ? print $new_user_list : print str_replace('%20',' ', str_replace("&#039;","'", $_COOKIE['user_blacklist'])); ?>"/>
+<input type="text" name="users" value="<?php isset($new_user_list) ? print $new_user_list : print str_replace('%20',' ', str_replace("&#039;","'", $cub)); ?>"/>
 </td></tr>
 <tr><td>
 <label class="block">评论阈值</label>	<p>任何投票评分低于此值的评论都将被屏蔽。</p>
 </td><td>
-<input type="text" name="cthreshold" value="<?php ($new_cthreshold == "" && !isset($_COOKIE['comment_threshold'])) ? print 0 : $new_threshold != "" ? print $new_cthreshold : print $_COOKIE['comment_threshold']; ?>"/>
+<input type="text" name="cthreshold" value="<?php isset($new_cthreshold) ? print $new_cthreshold : print $cct; ?>"/>
 </td></tr>
 <tr><td>
 <label class="block">帖子阈值</label><p>任何投票评分低于此值的帖子都将被屏蔽。</p>
 </td><td>
-<input type="text" name="pthreshold" value="<?php ($new_pthreshold == "" && !isset($_COOKIE['post_threshold'])) ? print 0 : $new_pthreshold != "" ? print $new_pthreshold : print $_COOKIE['post_threshold']; ?>"/>
+<input type="text" name="pthreshold" value="<?php isset($new_pthreshold) ? print $new_pthreshold : print $cpt; ?>"/>
 </td></tr>
 <tr><td>
 <label class="block">我的标签</label>
 <p>当你发表与编辑帖子时，可以快速选择这里设置的标签。</p>
 </td><td>
-<textarea name="my_tags" rows="30" cols="50"><?php $new_my_tags != "" ? print $new_my_tags : print str_replace("%20", " ",str_replace('&#039;',"'",$_COOKIE['tags']));?></textarea>	
+<textarea name="my_tags" rows="30" cols="50"><?php isset($new_my_tags) ? print $new_my_tags : print str_replace("%20", " ",str_replace('&#039;',"'",$cts));?></textarea>	
 </td></tr></table>
 </div>
 <div class="option">
