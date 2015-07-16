@@ -7,6 +7,7 @@ $query = "CREATE TABLE IF NOT EXISTS `$alias_table` (
   `tag` VARCHAR(255) DEFAULT NULL,
   `alias` VARCHAR(255) DEFAULT NULL,
   `status` varchar(32) DEFAULT NULL,
+  `reason` text,
   KEY `status` (`status`),
   KEY `alias` (`alias`),
   KEY `tag` (`tag`)
