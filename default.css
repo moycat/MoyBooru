@@ -46,22 +46,22 @@ input {
 }
 
 a:link {
-  color: #006FFA;
+  color: #A020F0;
   text-decoration: none;
 }
 
 a:visited {
-  color: #006FFA;
+  color: #A020F0;
   text-decoration: none;
 }
 
 a:hover {
-  color: #33CFFF;
+  color: #7B00D7;
   text-decoration: none;
 }
 
 a:active {
-  color: #006FFA;
+  color: #A020F0;
   text-decoration: none;
 }
 
@@ -81,7 +81,7 @@ a.help {
 }
 
 .link {
-  color: #006FFA;
+  color: #A020F0;
   background: none;
   border: none;
   font-size: 1em;
@@ -89,7 +89,7 @@ a.help {
 }
 
 .link:hover {
-  color: #33CFFF;
+  color: #7B00D7;
 }
 
 label {
@@ -117,7 +117,7 @@ span.locked-topic {
 th {
   font-weight: bold;
   text-align: left;
-  background-color: #006ffa;
+  background-color: #A020F0;
   color: white;
   padding: 0.2em 0.5em;
   white-space: nowrap;
@@ -203,7 +203,7 @@ h5 a:visited {
 }
 
 h5 a:hover {
-  color: #33CFFF;
+  color: #7B00D7;
 }
 
 .space {
@@ -302,7 +302,7 @@ span.comment-info a {
 }
 
 span.comment-info a:hover {
-  color: #33CFFF;
+  color: #7B00D7;
 }
 
 a.comment-link:link, a.comment-link:visited {
@@ -358,7 +358,7 @@ li#notice {
 
 form.button-to input {
   border: none;
-  color: #006FFA;
+  color: #A020F0;
   background: none;
   cursor: pointer;
   font-size: 1em;
@@ -366,7 +366,7 @@ form.button-to input {
 }
 
 form.button-to input:hover {
-  color: #33CFFF;
+  color: #7B00D7;
 }
 
 div#paginator {
@@ -405,7 +405,7 @@ div#paginator a.arrow {
 
 div#paginator a.arrow:hover {
   background: white;
-  color: #33CFFF;
+  color: #7B00D7;
 }
 
 div#static-index {
@@ -491,7 +491,7 @@ div#comment-list2 h5 a {
 }
 
 div#comment-list2 h5 a:hover {
-  color: #33CFFF;
+  color: #7B00D7;
 }
 
 div#comment-list2 div.col1 {
