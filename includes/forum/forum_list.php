@@ -61,7 +61,7 @@
 		$sticky = "";
 		$locked = "";
 		if($row['priority'] =="1")
-			$sticky ="Sticky: ";
+			$sticky ="【置顶】";
 		if($row['locked']=="1")
 			$locked =' <span class="locked-topic">（锁定）</span>';
 			
@@ -83,7 +83,7 @@
 	}
 	echo '</table><div class="paginator"><div id="paginator">';
 	$misc = new misc();
-	print $misc->pagination($_GET['page'],$_GET['s'],$row['id'],$limit,$page_limit,$numrows,$_GET['pid'],$_GET['tags'],$_GET['query']);
+	print $misc->pagination($_GET['page'],$_GET['s'],$row['id'],$limit,$page_limit,$numrows,isset($_GET['pid']) ? $_GET['pid'] : '',isset($_GET['tags']) ? $_GET['tags'] : '',isset($_GET['query']) ? $_GET['query'] : '');
 	echo '</div><br /><div id="footer"><a href="#" onclick="showHide(\'new_topic\'); return false;">发表新主题</a> | <a href="'.$site_url.'/help/">帮助</a>';
 ?>	
 </div></div><form method="post" action="index.php?page=forum&amp;s=add" id="new_topic" style="display:none">

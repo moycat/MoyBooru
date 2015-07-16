@@ -6,9 +6,9 @@
 	{
 		$type = $db->real_escape_string($_GET['type']);
 		$id = $db->real_escape_string($_GET['id']);
-		$pid = $db->real_escape_string($_GET['pid']);
 		if($type == "note")
 		{
+			$pid = $db->real_escape_string($_GET['pid']);
 			header("Cache-Control: store, cache");
 			header("Pragma: cache");
 			require "includes/header.php";
@@ -38,7 +38,7 @@
 			header("Pragma: cache");
 			require "includes/header.php";
 			print '<table width="100%" class="highlightable" id="history">
-			<tr><th width="1%"></th><th width="4%">帖子</th><th width="5%">日期</th><th width="10%">用户</th><th width="60%">主体</th><th width="10%">选项</th></tr>';			
+			<tr><th width="1%"></th><th width="4%">帖子</th><th width="5%">日期</th><th width="10%">用户</th><th width="60%">内容</th><th width="10%">选项</th></tr>';			
 			$query = "SELECT id, updated_at, user_id, version, body FROM $note_history_table where post_id='$id' ORDER BY id,version DESC";
 			$result = $db->query($query);
 			$count = $result->num_rows;
@@ -87,6 +87,7 @@
 		}
 		else if($type == "revert")
 		{
+			$pid = $db->real_escape_string($_GET['pid']);
 			if($userc->gotpermission('reverse_notes'))
 			{
 					$pid = $db->real_escape_string($_GET['pid']);

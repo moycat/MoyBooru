@@ -8,14 +8,15 @@
 	{
 		$tag = $db->real_escape_string(str_replace(" ","_",mb_trim(htmlentities($_POST['tag'], ENT_QUOTES, 'UTF-8'))));
 		$alias = $db->real_escape_string(str_replace(" ","_",mb_trim(htmlentities($_POST['alias'], ENT_QUOTES, 'UTF-8'))));
+		$reason = $db->real_escape_string(mb_trim(htmlentities($_POST['reason'], ENT_QUOTES, 'UTF-8')));
 		$query = "SELECT COUNT(*) FROM $alias_table WHERE tag='$tag' AND alias='$alias'";
 		$result = $db->query($query);
 		$row = $result->fetch_assoc();
 		if($row['COUNT(*)'] > 0)
-			echo "<b>标签修正请求已经提交</b><br /><br />";
+			echo "<b>标签修正请求已提交过，请勿再次提交</b><br /><br />";
 		else
 		{
-			$query = "INSERT INTO $alias_table(tag, alias, status) VALUES('$tag', '$alias', 'pending')";
+			$query = "INSERT INTO $alias_table(tag, alias, status, reason) VALUES('$tag', '$alias', 'pending', '$reason')";
 			$db->query($query);
 			echo "<b>标签修正请求已经提交</b><br /><br />";
 		}
@@ -51,10 +52,11 @@
 	<form method="post" action=""><table><tr><td>
 	<b>标签</b></td><td><input type="text" name="alias" value=""/></td></tr>
 	<tr><td><b>修正为</b></td><td><input type="text" name="tag" value=""/></td></tr>
+	<tr><td><b>理由</b></td><td><input type="text" name="reason" value=""/></td></tr>
 	</table>
 	<input type="submit" name="submit" value="提交"/>
 	</form>
 	<div id="paginator">';
 	$misc = new misc();
-	print $misc->pagination($_GET['page'],$sub,$id,$limit,$page_limit,$numrows,$_GET['pid'],$tags);
+	print $misc->pagination($_GET['page'],isset($sub) ? $sub : '',isset($id) ? $id : '',$limit,$page_limit,$numrows, isset($_GET['pid']) ? $_GET['pid'] : '', isset($tags) ? $tags : '');
 ?></div></body></html>

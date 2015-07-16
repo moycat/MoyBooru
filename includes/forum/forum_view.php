@@ -16,7 +16,7 @@
 	if($user->check_log())
 	{
 		$uname = $checked_username;
-		$uid = checked_user_id;
+		$uid = $checked_user_id;
 	}
 	$query = "SELECT COUNT(*) FROM $forum_post_table WHERE topic_id='$id'";
 	$result = $db->query($query);
@@ -55,7 +55,7 @@
 	}
 	echo '<div class="paginator"><div id="paginator">';
 	$misc = new misc();
-	print $misc->pagination($_GET['page'],$_GET['s'],$row['id'],$limit,$page_limit,$numrows,$_GET['pid'],$_GET['tags']);
+	print $misc->pagination($_GET['page'],$_GET['s'],$row['id'],$limit,$page_limit,$numrows,isset($_GET['pid']) ? $_GET['pid'] : '',isset($_GET['tags']) ? $_GET['tags'] : '');
 	echo '</div><center><br /><br />';
 	$query = "SELECT locked FROM $forum_topic_table WHERE id='$id' LIMIT 1";
 	$result = $db->query($query) or die(mysql_error());
@@ -79,7 +79,7 @@
 		标题<br />
 		<input type="text" name="title" value=""/>
 		</td></tr><tr><td>
-		主体<br />
+		内容<br />
 		<textarea id="reply_box" name="post" rows="4" cols="6" style="padding-left: 5px; padding-right: 5px; width: 600px; height: 200px;"></textarea>
 		</td></tr><tr><td>
 		<input type="hidden" name="l" value="'.$limit.'"/>

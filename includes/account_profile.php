@@ -37,7 +37,7 @@
 			<div id="content">
 			<h2><?php print $row['user'];
 			$user2 = new user();
-			if($user2->gotpermission('is_admin')){echo ' | <a href="'.$site_url.'/admin/index.php?page=ban_user&user_id='.$id.'">封禁用户</a>';}?></h2>
+			if($user2->gotpermission('is_admin')){echo ' | <a href="'.$site_url.'/admin/index.php?page=ban_user&user_id='.$id.'">封禁此用户</a>';}?></h2>
 				<div>
 					<table width="100%" class="highlightable">
 		<tr>
