@@ -14,7 +14,7 @@
 	//图片文件夹的名称
 	$image_folder="images";
 	//视频文件夹的名称
-	$vedio_folder="vedios";
+	$video_folder="videos";
 	//缩略图的尺寸，与Danbooru中相同
 	$dimension=150;
 	//缩略图文件夹的的名称

@@ -8,11 +8,11 @@
 		update_config("../config.php", "site_url3", $_POST['site_url3']);
 		update_config("../config.php", "thumbnail_url", $_POST['thumbnail_url']);
 		update_config("../config.php", "image_folder", $_POST['image_folder']);
-		update_config("../config.php", "vedio_folder", $_POST['vedio_folder']);
+		update_config("../config.php", "video_folder", $_POST['video_folder']);
 		update_config("../config.php", "dimension", $_POST['dimension'], 'int');
 		update_config("../config.php", "thumbnail_folder", $_POST['thumbnail_folder']);
 		
-		print "设置已更新";
+		print '设置已更新<br/>';
 	}
 ?>
 <b>站点基本设置</b>
@@ -35,8 +35,8 @@
     <input name="image_folder" type="text" id="image_folder" value="<?php echo get_config("../config.php", "image_folder"); ?>">
   <em>可不修改</em></p>
   <p>视频文件夹名称：
-    <label for="vedio_folder"></label>
-    <input name="vedio_folder" type="text" id="vedio_folder" value="<?php echo get_config("../config.php", "vedio_folder"); ?>">
+    <label for="video_folder"></label>
+    <input name="video_folder" type="text" id="video_folder" value="<?php echo get_config("../config.php", "video_folder"); ?>">
   <em>可不修改</em></p>
   <p>
     缩略图尺寸：
