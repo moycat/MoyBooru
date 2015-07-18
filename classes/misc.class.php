@@ -253,7 +253,7 @@
 			if($page != 0 && !((($page+$limit) / $limit) > $pages)) 
 			{ 
 				$back_page = $page - $limit;
-				$output .=  '<a href="?page='.$page_type.''.$sub.''.$query.''.$has_id.''.$has_tags.'&amp;pid=0" alt="第一页">&lt;&lt;</a><a href="?page='.$page_type.''.$sub.''.$query.''.$has_id.''.$has_tags.'&amp;pid='.$back_page.'" alt="上一页">&lt;</a>';
+				$output .=  '<a href="?page='.$page_type.''.$sub.''.$query.''.$has_id.''.isset($has_tags) ? $has_tags : ''.'&amp;pid=0" alt="第一页">&lt;&lt;</a><a href="?page='.$page_type.''.$sub.''.$query.''.$has_id.''.isset($has_tags) ? $has_tags : ''.'&amp;pid='.$back_page.'" alt="上一页">&lt;</a>';
 			}
 			for($i=$start; $i <= $tmp_limit; $i++)
 			{
@@ -263,14 +263,14 @@
 					if ($ppage == $page)
 						$output .=  ' <b>'.$i.'</b> ';
 					else
-						$output .=  '<a href="?page='.$page_type.''.$sub.''.$query.''.$has_id.''.$has_tags.'&amp;pid='.$ppage.'">'.$i.'</a>';
+						$output .=  '<a href="?page='.$page_type.''.$sub.''.$query.''.$has_id.''.isset($has_tags) ? $has_tags : ''.'&amp;pid='.$ppage.'">'.$i.'</a>';
 				}
 			}
 			if (!((($page+$limit) / $limit) >= $pages) && $pages != 1) 
 			{ 
 				// If last page don't give next link.
 				$next_page = $page + $limit;
-				$output .= '<a href="?page='.$page_type.''.$sub.''.$query.''.$has_id.''.$has_tags.'&amp;pid='.$next_page.'" alt="下一页">&gt;</a><a href="?page='.$page_type.''.$sub.''.$query.''.$has_id.''.$has_tags.'&amp;pid='.$lastpage.'" alt="最后一页">&gt;&gt;</a>';
+				$output .= '<a href="?page='.$page_type.''.$sub.''.$query.''.$has_id.''.isset($has_tags) ? $has_tags : ''.'&amp;pid='.$next_page.'" alt="下一页">&gt;</a><a href="?page='.$page_type.''.$sub.''.$query.''.$has_id.''.isset($has_tags) ? $has_tags : ''.'&amp;pid='.$lastpage.'" alt="最后一页">&gt;&gt;</a>';
 			}
 			return $output;
 		}
