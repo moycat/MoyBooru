@@ -214,5 +214,5 @@ var posts = {}; var pignored = {};
 		}
 	}
 ?>
-</div><div id="footer"><a href="index.php?page=post&amp;s=add">发表</a> | <a href="help/">帮助</a></div><br /><br />
+</div><div id="footer"><a href="index.php?page=post&amp;s=add">发表图片</a> | <a href="index.php?page=post&amp;s=add_video">发表视频</a> | <a href="help/">帮助</a></div><br /><br />
 </div></div></div></body></html>

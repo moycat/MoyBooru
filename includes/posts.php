@@ -1,6 +1,8 @@
 <?php
 	if($_GET['s'] == "add")	
 		require "includes/post_add.php";
+	if($_GET['s'] == "add_video")	
+		require "includes/post_add_video.php";
 	else if($_GET['s'] == "view")
 		require "includes/post_view.php";
 	else if($_GET['s'] == "list")
