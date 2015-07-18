@@ -1,7 +1,6 @@
 ﻿<?php
-	require "../config.php";
 	require "../functions.global.php";
-	$db = new mysqli($mysql_host,$mysql_user,$mysql_pass,$mysql_db) or die("Ooops?");
+	$db = new mysqli($db_host,$db_user,$db_pw,$db_base) or die("Out! Out! 数据库抽了");
 	$db->set_charset('utf8');
 $query = "CREATE TABLE IF NOT EXISTS `$alias_table` (
   `tag` VARCHAR(255) DEFAULT NULL,
@@ -326,5 +325,5 @@ if($result->num_rows =="0")
 	$query = "INSERT INTO $hit_counter_table(count) VALUES('0')";
 	$db->query($query);
 }
-	print "<h1>没有显示错误？那么安装顺利结束了！请立即删除网站根目录下的install文件夹</h1>";
+	print "<h1>没有显示错误？那么安装顺利结束了！请立即删除网站根目录下的install文件夹！如不删除可能导致你的站点被轻易篡改</h1>";
 ?>
