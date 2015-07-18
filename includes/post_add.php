@@ -1,4 +1,7 @@
 <?php
+	header("Cache-Control: store, cache");
+	header("Pragma: cache");
+	require "includes/header.php";
 	//die("Maintenance mode. please try again in 1 hour.");
 	error_reporting(0);
 	ignore_user_abort(1);
@@ -174,13 +177,10 @@
 				$db->query($query);
 				$query = "UPDATE $user_table SET post_count = post_count+1 WHERE id='$checked_user_id'";
 				$db->query($query);
-				print "图片添加成功";
+				print "<b>图片添加成功</b>";
 			}
 		}
 	}
-	header("Cache-Control: store, cache");
-	header("Pragma: cache");
-	require "includes/header.php";
 	print $error;
 ?>
 	<form method="post" target="" enctype="multipart/form-data">
