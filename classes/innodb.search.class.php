@@ -125,7 +125,7 @@
 					$parent_patch = "OR tags LIKE '% $g_tags %' $parent $g_owner $g_rating";
 				else
 					$parent_patch = " AND parent='0'";
-				$query = "SELECT id, image, directory, score, rating, video, tags, owner FROM $post_table WHERE tags LIKE '% $g_tags %' $g_tags2 $g_parent $g_owner $g_rating $parent_patch ORDER BY id DESC";
+				$query = "SELECT id, image, directory, score, rating, video, title, tags, owner FROM $post_table WHERE tags LIKE '% $g_tags %' $g_tags2 $g_parent $g_owner $g_rating $parent_patch ORDER BY id DESC";
 			}
 			else if($g_parent != "" || $g_owner != "" || $g_rating != "")
 			{
@@ -141,7 +141,7 @@
 					$g_rating = substr($g_rating,4,strlen($g_rating));
 				if($g_parent == "")
 					$parent_patch = " AND parent='0'";
-				$query = "SELECT id, image, directory, score, rating, video, tags, owner FROM $post_table WHERE $g_parent $g_owner $g_rating $parent_patch ORDER BY id DESC";			
+				$query = "SELECT id, image, directory, score, rating, video, title, tags, owner FROM $post_table WHERE $g_parent $g_owner $g_rating $parent_patch ORDER BY id DESC";			
 			}
 			else
 			{
@@ -149,10 +149,10 @@
 				if(strlen($search)-$count > 0)
 				{
 					$res = str_replace("*","",$search);
-					$query = "SELECT id, image, directory, score, rating, video, tags, owner FROM $post_table WHERE tags LIKE '% $res %' ORDER BY id DESC";
+					$query = "SELECT id, image, directory, score, rating, video, title, tags, owner FROM $post_table WHERE tags LIKE '% $res %' ORDER BY id DESC";
 				}
 				else
-					$query = "SELECT id, image, directory, score, rating, video, tags, owner FROM $post_table ORDER BY id DESC";
+					$query = "SELECT id, image, directory, score, rating, video, title, tags, owner FROM $post_table ORDER BY id DESC";
 			}			
 			return $query;
 		}
@@ -169,7 +169,7 @@
 		{
 			global $post_table;
 			$date = date("Ymd");
-			$query = "SELECT id, image, directory, score, rating, video, tags, owner FROM $post_table".$search.$condition;
+			$query = "SELECT id, image, directory, score, rating, video, title, tags, owner FROM $post_table".$search.$condition;
 			return $query;
 		}
 	}
