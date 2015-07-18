@@ -8,7 +8,7 @@
 		die;
 	if($limit > 100)
 		$limit = 100;
-	$query = "SELECT id, image, directory, score, rating, tags, height, width, hash FROM  $post_table WHERE id >= '$start' LIMIT $limit";
+	$query = "SELECT id, image, directory, score, rating, video, tags, height, width, hash FROM  $post_table WHERE id >= '$start' LIMIT $limit";
 	$result = $db->query($query) or die($db->error);
 	$count = $result->num_rows;
 	header("Content-type: text/xml");

@@ -44,10 +44,16 @@
 			$last = $page + $limit;
 		else
 			$last = $numrows;
-		$query = "SELECT id, directory, image, reason, score, creation_date FROM $post_table WHERE spam=TRUE ORDER BY id LIMIT $page, $limit";
+		$query = "SELECT id, directory, image, reason, score, creation_date, video FROM $post_table WHERE spam=TRUE ORDER BY id LIMIT $page, $limit";
 		$result = $db->query($query);
 		while($row = $result->fetch_assoc())
-			echo '<tr><td style="width: 180px;"><center><a href="../index.php?page=post&s=view&id='.$row['id'].'"><img src="'.$site_url.'/'.$thumbnail_folder.'/'.$row['directory'].'/thumbnail_'.$row['image'].'"></a></center></td><td>'.$row['reason'].'</td><td>'.$row['score'].'</td><td>'.$row['creation_date'].'</td><td><a href="'.$site_url.'/admin/index.php?page=reported_posts&amp;unreport='.$row['id'].'">取消标记</a></td></tr><tr><td><br></td></tr>';
+		{
+			if($row['video'] == true)
+				$eurl = $thumbnail_url.'/'.'video.png';
+			else
+				$eurl = $thumbnail_url.'/'.$row['directory'].'/thumbnail_'.$row['image'];
+			echo '<tr><td style="width: 180px;"><center><a href="../index.php?page=post&s=view&id='.$row['id'].'"><img src="'.$site_url.$eurl.'"></a></center></td><td>'.$row['reason'].'</td><td>'.$row['score'].'</td><td>'.$row['creation_date'].'</td><td><a href="'.$site_url.'/admin/index.php?page=reported_posts&amp;unreport='.$row['id'].'">取消标记</a></td></tr><tr><td><br></td></tr>';
+		}
 		$result->free_result();
 		
 		echo "</table><br /><br />";

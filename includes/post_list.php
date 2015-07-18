@@ -117,7 +117,7 @@ var posts = {}; var pignored = {};
 		else
 			$page = 0;
 		if(!isset($_GET['tags']) || isset($_GET['tags']) && $_GET['tags'] == "all" || isset($_GET['tags']) && $_GET['tags'] == "")
-			$query = "SELECT id, image, directory, score, rating, tags, owner, video FROM $post_table WHERE parent = '0' ORDER BY id DESC LIMIT $page, $limit";
+			$query = "SELECT id, image, directory, score, rating, video, tags, owner, video FROM $post_table WHERE parent = '0' ORDER BY id DESC LIMIT $page, $limit";
 		else
 		{
 			if($no_cache === true || $tag_count > 1 || strpos(strtolower($new_tag_cache),"user:") !== false || strpos(strtolower($new_tag_cache),"rating:") !== false || substr($new_tag_cache,0,1) == "-" || strpos(strtolower($new_tag_cache),"*") !== false || strpos(strtolower($new_tag_cache),"parent:") !== false)
@@ -152,7 +152,7 @@ var posts = {}; var pignored = {};
 					$eurl = $thumbnail_url.'/'.'video.png';
 				else
 					$eurl = $thumbnail_url.'/'.$row['directory'].'/thumbnail_'.$row['image'];
-				$images .= '<span class="thumb"><a id="p'.$row['id'].'" href="index.php?page=post&amp;s=view&amp;id='.$row['id'].'"><img src="'.$eurl.'" alt="post" border="0" title="'.$row['tags'].' score:'.$row['score'].' rating:'. $row['rating'].'"/></a>
+				$images .= '<span class="thumb"><a id="p'.$row['id'].'" href="index.php?page=post&amp;s=view&amp;id='.$row['id'].'"><img src="'.$eurl.'" alt="post" border="0" title="'.$row['tags'].' 【分数】'.$row['score'].' 【分级】'. $row['rating'].'"/></a>
 				<script type="text/javascript">
 				//<![CDATA[
 				posts['.$row['id'].'] = {\'tags\':\''.strtolower(str_replace('\\',"&#92;",str_replace("'","&#039;",$tags))).'\'.split(/ /g), \'rating\':\''.$row['rating'].'\', \'score\':'.$row['score'].', \'user\':\''.str_replace('\\',"&#92;",str_replace(' ','%20',str_replace("'","&#039;",$row['owner']))).'\'}

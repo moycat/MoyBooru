@@ -93,13 +93,18 @@
 		$result = $db->query($query) or die($db->error);
 		while($row = $result->fetch_assoc())
 		{
-			$query = "SELECT id, directory as dir, image, tags, owner, rating, score FROM $post_table WHERE id='".$row['favorite']."'";
+			$query = "SELECT id, directory as dir, image, tags, owner, rating, score, video FROM $post_table WHERE id='".$row['favorite']."'";
 			$res = $db->query($query) or die($db->error);
 			$r = $res->fetch_assoc();
+			if($r['video'] == true)
+				$eurl = $thumbnail_url.'/'.'video.png';
+			else
+				$eurl = $thumbnail_url.'/'.$r['directory'].'/thumbnail_'.$r['image'];
 			?>
-				<span class="thumb" id="p<?php print $r['id']; ?>"><a href="index.php?page=post&amp;s=view&amp;id=<?php print $r['id']; ?>"><img src="<?php print $thumbnail_url.'/'.$r['dir']; ?>/thumbnail_<?php print $r['image']; ?>" alt="<?php print $r['tags'].' rating:'.$r['rating'].' score:'.$r['score'].' user:'.$r['owner']; ?>" class="preview" title="<?php print $r['tags'].' rating:'.$r['rating'].' score:'.$r['score'].' user:'.$r['owner']; ?>"></a></span>
+				<span class="thumb" id="p<?php print $r['id']; ?>"><a href="index.php?page=post&amp;s=view&amp;id=<?php print $r['id']; ?>"><img src="<?php echo $eurl; ?>" alt="<?php print $r['tags'].' 【分级】'.$r['rating'].' 【分数】'.$r['score'].' 【用户】'.$r['owner']; ?>" class="preview" title="<?php print $r['tags'].' 【分级】'.$r['rating'].' 【分数】'.$r['score'].' 【用户】'.$r['owner']; ?>"></a></span>
 			<script type="text/javascript">
 			//<![CDATA[
+			
 				posts['<?php print $r['id']; ?>'] = {'tags':'<?php print mb_strtolower(str_replace('\\',"&#92;",str_replace("'","&#039;",substr($r['tags'],1,strlen($r['tags'])-2))),'UTF-8');?>'.split(/ /g), 'rating':'<?php print mb_strtolower($r['rating'],'UTF-8'); ?>', 'score':'<?php print $r['score']; ?>', 'user':'<?php print mb_strtolower(str_replace('\\',"&#92;",str_replace(' ','%20',str_replace("'","&#039;",$r['owner']))),'UTF-8'); ?>'}
 			//]]>
 			</script>
@@ -117,12 +122,16 @@
 <h4>最近上传 <a href="index.php?page=post&amp;s=list&amp;tags=user:<?php print $user; ?>">&raquo;</a></h4>
 <div>
 <?php
-		$query = "SELECT id, directory as dir, image, tags, rating, score, owner FROM $post_table WHERE owner='$user' ORDER BY id DESC LIMIT 5";
+		$query = "SELECT id, directory as dir, image, tags, rating, score, owner, video FROM $post_table WHERE owner='$user' ORDER BY id DESC LIMIT 5";
 		$result = $db->query($query) or die($db->error);
 		while($row = $result->fetch_assoc())
 		{
+			if($row['video'] == true)
+				$eurl = $thumbnail_url.'/'.'video.png';
+			else
+				$eurl = $thumbnail_url.'/'.$row['dir'].'/thumbnail_'.$row['image'];
 ?>
-  <span class="thumb" id="p<?php print $row['id']; ?>"><a href="index.php?page=post&amp;s=view&amp;id=<?php print $row['id']; ?>"><img src="<?php print $thumbnail_url.'/'.$row['dir']; ?>/thumbnail_<?php print $row['image']; ?>" alt="<?php print $row['tags'].' rating:'.$row['rating'].' score:'.$row['score'].' user:'.$row['owner']; ?>" class="preview" title="<?php print $row['tags'].' rating:'.$row['rating'].' score:'.$row['score'].' user:'.$row['owner']; ?>"></a></span>
+  <span class="thumb" id="p<?php print $row['id']; ?>"><a href="index.php?page=post&amp;s=view&amp;id=<?php print $row['id']; ?>"><img src="<?php echo $eurl; ?>" alt="<?php print $row['tags'].' 【分级】'.$row['rating'].' 【分数】'.$row['score'].' 【用户】'.$row['owner']; ?>" class="preview" title="<?php print $row['tags'].' 【分级】'.$row['rating'].' 【分数】'.$row['score'].' 【用户】'.$row['owner']; ?>"></a></span>
 	<script type="text/javascript">
 		//<![CDATA[
 			posts['<?php print $row['id']; ?>'] = {'tags':'<?php print mb_strtolower(str_replace('\\',"&#92;",str_replace("'","&#039;",substr($row['tags'],1,strlen($row['tags'])-2))),'UTF-8');?>'.split(/ /g), 'rating':'<?php print mb_strtolower($row['rating'],'UTF-8'); ?>', 'score':'<?php print $row['score']; ?>', 'user':'<?php print mb_strtolower(str_replace('\\',"&#92;",str_replace(' ','%20',str_replace("'","&#039;",$row['owner']))),'UTF-8'); ?>'}
