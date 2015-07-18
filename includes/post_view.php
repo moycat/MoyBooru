@@ -40,6 +40,7 @@
 		$ttags = explode(" ",$tags);
 		$rating = $post_data['rating'];
 		$lozerisdumb = "- ".str_replace('_',' ',str_replace('&quot;','\\"',$tags));
+		$video = $post_data['video'];
 		require "includes/header.php";	
 		echo '<div id="content"><div id="post-view">';
 		if($post->has_children($id))
@@ -76,7 +77,19 @@
 			<div style="display: none; top: '.($retme['width']+$retme['y']+5).'px; left: '.$retme['x'].'px;" class="note-body" id="note-body-'.$retme['id'].'" title="点击编辑">'.$retme['body'].'</div>
 			';
 		}
-		echo '<img alt="img" src="f6ca1c7d5d00a2a3fb4ea2f7edfa0f96a6d09c11717f39facabad2d724f16fbb/images/'.$post_data['directory'].'/'.$post_data['image'].'" id="image" onclick="Note.toggle();" style="margin-right: 70px;"/><br />发表于 '.$post_data['creation_date'].' ，发表者 <a href="index.php?page=account_profile&amp;uname='.$post_data['owner'].'">'.$post_data['owner'].'</a><br /><p id="note-count"></p>
+		if($video == true)
+		{
+			echo '<video id="'.$id.'" class="video-js vjs-default-skin" controls
+ preload="auto" width="700" height="400"
+ data-setup="{}">
+ <source src="f6ca1c7d5d00a2a3fb4ea2f7edfa0f96a6d09c11717f39facabad2d724f16fbb/videos/'.$post_data['image'].'" type=\'video/mp4\'>
+</video>';
+		}
+		else
+		{
+			echo '<img alt="img" src="f6ca1c7d5d00a2a3fb4ea2f7edfa0f96a6d09c11717f39facabad2d724f16fbb/images/'.$post_data['directory'].'/'.$post_data['image'].'" id="image" onclick="Note.toggle();" style="margin-right: 70px;"/>';
+		}
+		echo '<br />发表于 '.$post_data['creation_date'].' ，发表者 <a href="index.php?page=account_profile&amp;uname='.$post_data['owner'].'">'.$post_data['owner'].'</a><br /><p id="note-count"></p>
 		<script type="text/javascript">
 		//<![CDATA[
 		Note.post_id = '.$id.';';
@@ -87,7 +100,12 @@
 		echo 'Note.updateNoteCount();
 		Note.show();
 		//]]></script>';
-		echo '<a href="#" onclick="if(confirm(\'你确定要删除这篇帖子吗？\')){var f = document.createElement(\'form\'); f.style.display = \'none\'; this.parentNode.appendChild(f); f.method = \'POST\'; f.action = \'./public/remove.php?id='.$id.'&amp;removepost=1\'; f.submit();}; return false;">删除</a> | <a href="#" onclick="Note.create('.$id.'); return false;">添加注释</a> | <a href="#" onclick="addFav(\''.$id.'\'); return false;">添加收藏</a> | <a href="#" onclick="showHide(\'edit_form\'); return false;">编辑</a> | <a href="#" onclick="document.location=\'index.php?page=history&amp;type=page_notes&amp;id='.$id.'\'; return false;">注释历史</a> | <a href="index.php?page=history&amp;type=tag_history&amp;id='.$id.'">标签历史</a>'; ?> <?php $prev_next['0'] != "" ? print ' | <a href="index.php?page=post&amp;s=view&amp;id='.$prev_next['0'].'">上一篇</a>' : print ""; $prev_next['1'] != "" ? print ' | <a href="index.php?page=post&amp;s=view&amp;id='.$prev_next['1'].'">下一篇</a>' : print ""; $post_data['parent'] == 0 ? print "<br />" : print "<br /><a href=\"index.php?page=post&s=view&id=".$post_data['parent']."\">父帖子</a> | ";
+		echo '<a href="#" onclick="if(confirm(\'你确定要删除这篇帖子吗？\')){var f = document.createElement(\'form\'); f.style.display = \'none\'; this.parentNode.appendChild(f); f.method = \'POST\'; f.action = \'./public/remove.php?id='.$id.'&amp;removepost=1\'; f.submit();}; return false;">删除</a> | ';
+		if(!$video)
+			echo '<a href="#" onclick="Note.create('.$id.'); return false;">添加注释</a> | ';
+		echo '<a href="#" onclick="addFav(\''.$id.'\'); return false;">添加收藏</a> | <a href="#" onclick="showHide(\'edit_form\'); return false;">编辑</a> | ';
+		if(!$video) echo '<a href="#" onclick="document.location=\'index.php?page=history&amp;type=page_notes&amp;id='.$id.'\'; return false;">注释历史</a> | ';
+		echo '<a href="index.php?page=history&amp;type=tag_history&amp;id='.$id.'">标签历史</a>'; ?> <?php $prev_next['0'] != "" ? print ' | <a href="index.php?page=post&amp;s=view&amp;id='.$prev_next['0'].'">上一篇</a>' : print ""; $prev_next['1'] != "" ? print ' | <a href="index.php?page=post&amp;s=view&amp;id='.$prev_next['1'].'">下一篇</a>' : print ""; $post_data['parent'] == 0 ? print "<br />" : print "<br /><a href=\"index.php?page=post&s=view&id=".$post_data['parent']."\">父帖子</a> | ";
 ?>
 		<form method="post" action="./public/edit_post.php" id="edit_form" name="edit_form" style="display:none">
 		<table><tr><td>

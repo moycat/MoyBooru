@@ -10,6 +10,12 @@
 		<link rel="search" type="application/opensearchdescription+xml" title="'.$site_url3.'" href="'.$site_url.'/default.xml" />
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="一个可匿名的图片/视频分享站点。" />
+		<link href="/import/video-js/video-js.css" rel="stylesheet" type="text/css">
+		<script src="/import/video-js/video.js"></script>
+		<script>
+		videojs.options.flash.swf = "/import/video-js/video-js.swf";
+		</script>
+		<script src="/import/video-js/lang/zh-CN.js"></script>
 		<script src="'.$site_url.'/script/prototype.js?2" type="text/javascript"></script>
 		<script src="'.$site_url.'/script/global.js?2" type="text/javascript"></script>
 		<script src="'.$site_url.'/script/scriptaculous.js?2" type="text/javascript"></script>

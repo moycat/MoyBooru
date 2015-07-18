@@ -211,6 +211,7 @@ $query = "CREATE TABLE IF NOT EXISTS `$post_table` (
   `source` VARCHAR(255) DEFAULT NULL,
   `title` VARCHAR(255) DEFAULT NULL,
   `owner` VARCHAR(256) DEFAULT NULL,
+  `video` int(11) NOT NULL DEFAULT '0',
   `height` int(10) unsigned default '0',
   `width` int(10) unsigned default '0',
   `ext` varchar(10) DEFAULT NULL,
