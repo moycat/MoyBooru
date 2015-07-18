@@ -31,14 +31,21 @@
 		if($numrows < 1)
 			die("<h1>暂无收藏</h1>");
 		$images = '';
-		$query = "SELECT t2.id, t2.image, t2.directory as dir, t2.tags, t2.owner, t2.score, t2.rating FROM $favorites_table as t1 JOIN $post_table AS t2 ON t2.id=t1.favorite WHERE t1.user_id='$id' LIMIT $page, $limit";
+		$query = "SELECT t2.id, t2.image, t2.directory as dir, t2.tags, t2.owner, t2.score, t2.rating, t2.title, t2.video FROM $favorites_table as t1 JOIN $post_table AS t2 ON t2.id=t1.favorite WHERE t1.user_id='$id' LIMIT $page, $limit";
 		$result = $db->query($query);
 		while($row = $result->fetch_assoc())
 		{
 			$tags = $row['tags'];
 			$tags = substr($tags,1,strlen($tags));
 			$tags = substr($tags,0,strlen($tags)-1);
-			$images .= '<span class="thumb" style="margin: 10px;"><a href="index.php?page=post&amp;s=view&amp;id='.$row['id'].'" id="p'.$row['id'].'" onclick="document.location=\'index.php?page=post&amp;s=view&amp;id='.$row['id'].'\'; return false;"><img src="'.$domain.'/thumbnails/'.$row['dir'].'/thumbnail_'.$row['image'].'" title="'.$tags.'" border="0" alt="image_thumb"/></a>'; (isset($_COOKIE['user_id']) && $_COOKIE['user_id'] == $id) ? $images .= '<br /><a href="#" onclick="document.location=\'index.php?page=favorites&s=delete&id='.$row['id'].'&pid='.$page.'\'; return false;"><b>删除</b></a></span>' : $images .= '</span>';
+			if($row['video'] == true)
+			{
+				$row['title'] = '<b>【视频】</b>'.$row['title'];
+				$eurl = $thumbnail_url.'/'.'video.png';
+			}
+			else
+				$eurl = $thumbnail_url.'/'.$row['directory'].'/thumbnail_'.$row['image'];
+			$images .= '<span class="thumb" style="margin: 10px;"><a href="index.php?page=post&amp;s=view&amp;id='.$row['id'].'" id="p'.$row['id'].'" onclick="document.location=\'index.php?page=post&amp;s=view&amp;id='.$row['id'].'\'; return false;"><img src="'.$eurl.'" title="'.$tags.'" border="0" alt="image_thumb"/><br/>'.$row['title'].'</a>'; (isset($_COOKIE['user_id']) && $_COOKIE['user_id'] == $id) ? $images .= '<br /><a href="#" onclick="document.location=\'index.php?page=favorites&s=delete&id='.$row['id'].'&pid='.$page.'\'; return false;"><b>（移除收藏）</b></a></span>' : $images .= '</span>';
 			$images .= '<script type="text/javascript">
 			//<![CDATA[
 			posts['.$row['id'].'] = {\'tags\':\''.str_replace('\\',"&#92;",str_replace(' ','%20',str_replace("'","&#039;",$tags))).'\'.split(/ /g), \'rating\':\''.$row['rating'].'\', \'score\':'.$row['score'].', \'user\':\''.str_replace('\\',"&#92;",str_replace(' ','%20',str_replace("'","&#039;",$row['owner']))).'\'}
