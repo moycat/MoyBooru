@@ -87,7 +87,8 @@
 		}
 		else
 		{
-			echo '<img alt="img" src="f6ca1c7d5d00a2a3fb4ea2f7edfa0f96a6d09c11717f39facabad2d724f16fbb/images/'.$post_data['directory'].'/'.$post_data['image'].'" id="image" onclick="Note.toggle();" style="margin-right: 70px;"/>';
+			$imgurl = 'f6ca1c7d5d00a2a3fb4ea2f7edfa0f96a6d09c11717f39facabad2d724f16fbb/images/'.$post_data['directory'].'/'.$post_data['image'];
+			echo '<a href="'.$imgurl.'" target="_blank"><img alt="img" src="'.$imgurl.'" id="image" onclick="Note.toggle();" style="margin-right: 70px;" max-width: 100%;height: auto;width: auto\9;/></a>';
 		}
 		echo '<br />发表于 '.$post_data['creation_date'].' ，发表者 <a href="index.php?page=account_profile&amp;uname='.$post_data['owner'].'">'.$post_data['owner'].'</a><br /><p id="note-count"></p>
 		<script type="text/javascript">
